@@ -3,6 +3,8 @@ import { View, Text, Alert, TouchableOpacity } from 'react-native';
 // Importando a função
 import { handleSignUp } from '../utils/authUtils';
 import AuthInputs from '../components/AuthInputs';
+// Importando Estilos
+import { AuthBackground, AuthView, AuthButton, AuthLinkText, AuthTitle, AuthBold, AuthButtonText, AuthInputsView } from '../styles/AuthStyles'
 
 const SignUpScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -19,38 +21,43 @@ const SignUpScreen = ({ navigation }) => {
   };
 
   return (
-    <View>
-      <AuthInputs
-        value={username}
-        onChangeText={setUsername}
-        placeholder="Username"
-        isPassword={false}
-      />
-      <AuthInputs
-        value={email}
-        onChangeText={setEmail}
-        placeholder="Email Andress"
-        isPassword={false}
-      />
-      <AuthInputs
-        value={password}
-        onChangeText={setPassword}
-        placeholder="Password"
-        isPassword={true}
-      />
-      <AuthInputs
-        value={confirmPassword}
-        onChangeText={setConfirmPassword}
-        placeholder="Repeat Password"
-        isPassword={true}
-      />
-      <TouchableOpacity onPress={onSignUp}>
-        <Text>Criar Conta</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
-        <Text>Já tem uma conta? Faça login</Text>
-      </TouchableOpacity>
-    </View>
+    <AuthBackground source={require('../assets/images/background.png')}>
+      <AuthView>
+      <AuthTitle>Create <AuthBold>NOW</AuthBold></AuthTitle>
+        <AuthInputsView>
+          <AuthInputs
+            value={username}
+            onChangeText={setUsername}
+            placeholder="Username"
+            isPassword={false}
+          />
+          <AuthInputs
+            value={email}
+            onChangeText={setEmail}
+            placeholder="Email Address"
+            isPassword={false}
+          />
+          <AuthInputs
+            value={password}
+            onChangeText={setPassword}
+            placeholder="Password"
+            isPassword={true}
+          />
+          <AuthInputs
+            value={confirmPassword}
+            onChangeText={setConfirmPassword}
+            placeholder="Repeat Password"
+            isPassword={true}
+          />
+        </AuthInputsView>
+        <AuthButton onPress={onSignUp}>
+          <AuthButtonText>SIGN UP</AuthButtonText>
+        </AuthButton>
+        <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
+          <AuthLinkText>Já tem uma conta? Faça login</AuthLinkText>
+        </TouchableOpacity>
+      </AuthView>
+    </AuthBackground>
   );
 }
 

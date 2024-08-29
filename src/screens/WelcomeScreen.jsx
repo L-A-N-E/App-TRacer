@@ -7,7 +7,7 @@ const WelcomeScreen = ({ navigation }) => {
   return (
     <AuthBackground source={require('../assets/images/background.png')}>
       <AuthView>
-        <AuthTitle>Welcome!</AuthTitle>
+        <AuthTitle>Wellcome!</AuthTitle>
         <AuthButton onPress={() => navigation.navigate('LoginScreen')}>
           <AuthButtonText>Login</AuthButtonText>
         </AuthButton>
