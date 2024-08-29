@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, Button } from 'react-native';
 import { auth } from '../firebase/firebaseConfig';
 import { handleLogout } from '../utils/authUtils';
+// Importando tela
+import { LoadingScreen } from './LoadingScreen'
 
 const HomeScreen = () => {
   const [user, setUser] = useState(null);
@@ -13,11 +15,7 @@ const HomeScreen = () => {
   }, []);
 
   if (user === null) {
-    return (
-      <View>
-        <Text>Carregando...</Text>
-      </View>
-    );
+    return <LoadingScreen />
   }
 
   return (
