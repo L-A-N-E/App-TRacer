@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, TextInput, Button, Text, Alert, TouchableOpacity, StyleSheet } from 'react-native';
 // Importando a função
 import { handleSignUp } from '../utils/authUtils';
-import Inputs from '../components/Inputs';
+import AuthInputs from '../components/AuthInputs';
 
 export default function SignUpScreen({ navigation }) {
   const [email, setEmail] = useState('');
@@ -20,25 +20,25 @@ export default function SignUpScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Inputs
+      <AuthInputs
         value={username}
         onChangeText={setUsername}
         placeholder="Username"
         isPassword={false}
       />
-      <Inputs
+      <AuthInputs
         value={email}
         onChangeText={setEmail}
         placeholder="Email Andress"
         isPassword={false}
       />
-      <Inputs
+      <AuthInputs
         value={password}
         onChangeText={setPassword}
         placeholder="Password"
         isPassword={true}
       />
-      <Inputs
+      <AuthInputs
         value={confirmPassword}
         onChangeText={setConfirmPassword}
         placeholder="Repeat Password"

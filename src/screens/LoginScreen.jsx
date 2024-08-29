@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
-import Inputs from '../components/Inputs';
+import AuthInputs from '../components/AuthInputs';
 
 const LoginScreen = ({ email, setEmail, password, setPassword, isLogin, setIsLogin, handleAuthentication, navigation }) => {
 
@@ -11,13 +11,13 @@ const LoginScreen = ({ email, setEmail, password, setPassword, isLogin, setIsLog
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login NOW</Text>
-      <Inputs
+      <AuthInputs
         value={email}
         onChangeText={setEmail}
         placeholder="Email Andress"
         isPassword={false}
       />
-      <Inputs
+      <AuthInputs
         value={password}
         onChangeText={setPassword}
         placeholder="Password"
