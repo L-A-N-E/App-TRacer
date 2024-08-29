@@ -1,11 +1,12 @@
 import { TextInput, Text, View } from 'react-native'
 import React from 'react'
+import { AuthInput, AuthText } from '../styles/AuthStyles';
 
 const AuthInputs = ({ value, onChangeText, placeholder, isPassword }) => {
     return (
       <View>
-        <Text>{placeholder != 'Email Andress' ? placeholder : "Email"}</Text>
-        <TextInput
+        <AuthText>{placeholder != 'Email Address' ? placeholder : "Email"}</AuthText>
+        <AuthInput
             value={value}
             onChangeText={onChangeText}
             placeholder={placeholder}
