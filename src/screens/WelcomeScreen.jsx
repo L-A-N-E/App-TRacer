@@ -1,20 +1,22 @@
 // Importando dependencias
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
+import { WelcomeTitle, WelcomeView } from '../styles/WelcomeStyles';
+import { AuthBackground, AuthButton, AuthText } from '../styles/AuthStyles'
 
 const WelcomeScreen = ({ navigation }) => {
   return (
-    <View>
-      <Text>Welcome Page!</Text>
-      <Button
-        title="Login"
-        onPress={() => navigation.navigate('LoginScreen')}
-      />
-      <Button
-        title="SignUp"
-        onPress={() => navigation.navigate('SignUp')}
-      />
-    </View>
+    <AuthBackground source={require('../assets/images/background.png')}>
+      <WelcomeView>
+        <WelcomeTitle>Welcome!</WelcomeTitle>
+        <AuthButton onPress={() => navigation.navigate('LoginScreen')}>
+          <AuthText>Login</AuthText>
+        </AuthButton>
+        <AuthButton onPress={() => navigation.navigate('SignUp')} >
+          <AuthText>Sign In</AuthText>
+        </AuthButton>
+      </WelcomeView>
+    </AuthBackground>
   );
 }
 
