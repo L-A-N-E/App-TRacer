@@ -1,27 +1,22 @@
 // Importando dependencias
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+// Importando os Estilos
+import { AuthBackground, AuthButton, AuthButtonText, AuthView, AuthTitle } from '../styles/AuthStyles'
 
-export default function WelcomeScreen({ navigation }) {
+const WelcomeScreen = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <Text>Welcome Page!</Text>
-      <Button
-        title="Login"
-        onPress={() => navigation.navigate('LoginScreen')}
-      />
-      <Button
-        title="SignUp"
-        onPress={() => navigation.navigate('SignUp')}
-      />
-    </View>
+    <AuthBackground source={require('../assets/images/background.png')}>
+      <AuthView>
+        <AuthTitle>Wellcome!</AuthTitle>
+        <AuthButton onPress={() => navigation.navigate('LoginScreen')}>
+          <AuthButtonText>Login</AuthButtonText>
+        </AuthButton>
+        <AuthButton onPress={() => navigation.navigate('SignUp')} >
+          <AuthButtonText>Sign In</AuthButtonText>
+        </AuthButton>
+      </AuthView>
+    </AuthBackground>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+export default WelcomeScreen
