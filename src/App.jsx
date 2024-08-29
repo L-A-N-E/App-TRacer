@@ -1,9 +1,13 @@
-import {  View } from 'react-native';
+// Importando dependencias
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+// Importando navigation
+import WelcomeNavigation from './navigation/WelcomeNavigation';
 
 export default function App() {
   return (
-    <View>
-      
-    </View>
+    <NavigationContainer>
+      <WelcomeNavigation />
+    </NavigationContainer>
   );
 }
