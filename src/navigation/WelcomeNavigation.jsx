@@ -1,5 +1,6 @@
 // Importando dependencias
 import { useState, useEffect } from 'react';
+import { Alert } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { onAuthStateChanged } from 'firebase/auth';
 // Importando as telas
