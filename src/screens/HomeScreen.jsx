@@ -3,7 +3,7 @@ import { View, Text, Button } from 'react-native';
 import { auth } from '../firebase/firebaseConfig';
 import { handleLogout } from '../utils/authUtils';
 // Importando tela
-import { LoadingScreen } from './LoadingScreen'
+import LoadingScreen from './LoadingScreen'
 
 const HomeScreen = () => {
   const [user, setUser] = useState(null);
