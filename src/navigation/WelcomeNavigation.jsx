@@ -14,7 +14,7 @@ import { handleAuthentication } from '../utils/authUtils';
 
 const Stack = createStackNavigator();
 
-export default function WelcomeNavigation() {
+const WelcomeNavigation = () => {
   const [user, setUser] = useState(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -37,7 +37,7 @@ export default function WelcomeNavigation() {
   };
 
   return (
-    <Stack.Navigator initialRouteName="Welcome">
+    <Stack.Navigator initialRouteName="Welcome" screenOptions={{headerShown: false,}}>
       <Stack.Screen name="Welcome" component={WelcomeScreen} />
       <Stack.Screen name="LoginScreen">
         {props => (
@@ -58,3 +58,5 @@ export default function WelcomeNavigation() {
     </Stack.Navigator>
   );
 }
+
+export default WelcomeNavigation

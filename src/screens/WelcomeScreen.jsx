@@ -1,10 +1,10 @@
 // Importando dependencias
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Button } from 'react-native';
 
-export default function WelcomeScreen({ navigation }) {
+const WelcomeScreen = ({ navigation }) => {
   return (
-    <View style={styles.container}>
+    <View>
       <Text>Welcome Page!</Text>
       <Button
         title="Login"
@@ -18,10 +18,4 @@ export default function WelcomeScreen({ navigation }) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+export default WelcomeScreen

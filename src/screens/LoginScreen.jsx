@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import AuthInputs from '../components/AuthInputs';
 
 const LoginScreen = ({ email, setEmail, password, setPassword, isLogin, setIsLogin, handleAuthentication, navigation }) => {
@@ -9,8 +9,8 @@ const LoginScreen = ({ email, setEmail, password, setPassword, isLogin, setIsLog
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Login NOW</Text>
+    <View>
+      <Text>Login NOW</Text>
       <AuthInputs
         value={email}
         onChangeText={setEmail}
@@ -26,32 +26,11 @@ const LoginScreen = ({ email, setEmail, password, setPassword, isLogin, setIsLog
       <TouchableOpacity onPress={onLoginPress}>
         <Text>Login</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('SignUp')} style={styles.link}>
-        <Text style={styles.linkText}>Need an Account? SignIn</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+        <Text>Need an Account? SignIn</Text>
       </TouchableOpacity>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 16,
-  },
-  link: {
-    marginTop: 16,
-  },
-  linkText: {
-    color: 'blue',
-    fontSize: 16,
-  },
-});
 
 export default LoginScreen;

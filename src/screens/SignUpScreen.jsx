@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, Text, Alert, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, Alert, TouchableOpacity } from 'react-native';
 // Importando a função
 import { handleSignUp } from '../utils/authUtils';
 import AuthInputs from '../components/AuthInputs';
 
-export default function SignUpScreen({ navigation }) {
+const SignUpScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -19,7 +19,7 @@ export default function SignUpScreen({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
+    <View>
       <AuthInputs
         value={username}
         onChangeText={setUsername}
@@ -47,26 +47,11 @@ export default function SignUpScreen({ navigation }) {
       <TouchableOpacity onPress={onSignUp}>
         <Text>Criar Conta</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')} style={styles.link}>
-        <Text style={styles.linkText}>Já tem uma conta? Faça login</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
+        <Text>Já tem uma conta? Faça login</Text>
       </TouchableOpacity>
     </View>
   );
 }
 
-// Estilos
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
-  },
-  link: {
-    marginTop: 16,
-  },
-  linkText: {
-    color: 'blue',
-    fontSize: 16,
-  },
-});
+export default SignUpScreen
