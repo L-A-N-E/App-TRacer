@@ -1,6 +1,9 @@
 import React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
+// Importando componente
 import AuthInputs from '../components/AuthInputs';
+// Importando estilos
+import { AuthBackground, AuthButton, AuthLinkText, AuthView, AuthTitle, AuthBold, AuthButtonText, AuthInputsView } from '../styles/AuthStyles'
 
 const LoginScreen = ({ email, setEmail, password, setPassword, isLogin, setIsLogin, handleAuthentication, navigation }) => {
 
@@ -9,27 +12,31 @@ const LoginScreen = ({ email, setEmail, password, setPassword, isLogin, setIsLog
   };
 
   return (
-    <View>
-      <Text>Login NOW</Text>
-      <AuthInputs
-        value={email}
-        onChangeText={setEmail}
-        placeholder="Email Andress"
-        isPassword={false}
-      />
-      <AuthInputs
-        value={password}
-        onChangeText={setPassword}
-        placeholder="Password"
-        isPassword={true}
-      />
-      <TouchableOpacity onPress={onLoginPress}>
-        <Text>Login</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
-        <Text>Need an Account? SignIn</Text>
-      </TouchableOpacity>
-    </View>
+    <AuthBackground source={require('../assets/images/background.png')}>
+      <AuthView>
+        <AuthTitle>Login <AuthBold>NOW</AuthBold></AuthTitle>
+        <AuthInputsView>
+          <AuthInputs
+            value={email}
+            onChangeText={setEmail}
+            placeholder="Email Address"
+            isPassword={false}
+          />
+          <AuthInputs
+            value={password}
+            onChangeText={setPassword}
+            placeholder="Password"
+            isPassword={true}
+          />
+        </AuthInputsView>
+        <AuthButton onPress={onLoginPress}>
+          <AuthButtonText>Login</AuthButtonText>
+        </AuthButton>
+        <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+          <AuthLinkText>Need an Account? SignIn</AuthLinkText>
+        </TouchableOpacity>
+      </AuthView>
+    </AuthBackground>
   );
 };
 
