@@ -12,8 +12,11 @@
 - React Navigation:
     1. Native: ```npm install @react-navigation/native```
     2. Stack: ```npm install @react-navigation/stack```
+    3. Bottom-Tabs: ``npm install @react-navigation/bottom-tabs``
     3. React Native Screens: ```npm install react-native-screens```
     - Utilizamos esses pacotes para navegar entre as telas do aplicativo
 
 -  Styled-Components: ```npm install styled-components```
     - Baixamos esse pacote para estilizar o nosso projeto
+- Expo Vector Icons: ``@expo/vector-icons``
+    - Utilizamos para colocar os ícones na aba de navegação!

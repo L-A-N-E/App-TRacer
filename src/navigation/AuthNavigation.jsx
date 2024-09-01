@@ -3,7 +3,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 // Importando telas
 import LoginScreen from '../screens/LoginScreen';
-import HomeScreen from '../screens/HomeScreen';
+import AppNavigator from './AppNavigation';
 
 const Stack = createStackNavigator();
 
@@ -20,7 +20,7 @@ const AuthNavigation = ({ user, email, setEmail, password, setPassword, isLogin,
       }}
     >
       {user ? (
-        <Stack.Screen name="Home" component={HomeScreen}/>
+        <Stack.Screen name="App" component={AppNavigator}/>
       ) : (
         <Stack.Screen name="Login">
           {props => (
