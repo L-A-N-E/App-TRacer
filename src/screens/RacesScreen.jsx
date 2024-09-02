@@ -1,50 +1,50 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
-
-// Simulação de dados de feed
-const sampleFeedData = [
-  { id: '1', content: 'Primeira corrida emocionante!' },
-  { id: '2', content: 'Outra corrida incrível!' },
-  { id: '3', content: 'Mais uma corrida interessante!' },
-];
+import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+// Importando os dados
+import sampleFormulaERacesData from '../constant/racesData.jsx'; 
+import { RacesContainer, RacesTabContainer, RacesTab, RacesTabText, RaceItem, RaceDate,  RaceContent, RaceLocation, RaceSeason } from '../styles/RacesStyles';
 
 const RacesScreen = () => {
-  const [feed, setFeed] = useState([]);
+  const [currentTab, setCurrentTab] = useState('upcoming');
+  const [races, setRaces] = useState([]);
 
   useEffect(() => {
-    // Simulando carregamento de dados
-    setFeed(sampleFeedData);
-  }, []);
+
+    setRaces(sampleFormulaERacesData[currentTab]);
+
+  }, [currentTab]);
 
   return (
-    <View style={styles.container}>
+    <RacesContainer>
+      <RacesTabContainer>
+        <RacesTab
+          isActive={currentTab === 'upcoming'}
+          onPress={() => setCurrentTab('upcoming')}
+        >
+          <RacesTabText>Upcoming E-Prix</RacesTabText>
+        </RacesTab>
+        <RacesTab
+          isActive={currentTab === 'past'}
+          onPress={() => setCurrentTab('past')}
+        >
+          <RacesTabText>Past E-Prix</RacesTabText>
+        </RacesTab>
+      </RacesTabContainer>
       <FlatList
-        data={feed}
+        data={races}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View style={styles.feedItem}>
-            <Text>{item.content}</Text>
-          </View>
+          <RaceItem>
+            <RaceDate>{item.date}</RaceDate>
+            <RaceContent>{item.content}</RaceContent>
+            <RaceLocation>{item.country} ({item.countryCode})</RaceLocation>
+            <RaceSeason>Season: {item.season}</RaceSeason>
+          </RaceItem>
         )}
-        contentContainerStyle={styles.feed}
+        contentContainerStyle={{ marginTop: 16 }}
       />
-    </View>
+    </RacesContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-  },
-  feed: {
-    marginTop: 16,
-  },
-  feedItem: {
-    padding: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-  },
-});
 
 export default RacesScreen;

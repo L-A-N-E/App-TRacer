@@ -60,8 +60,9 @@ export const AuthInput = styled.TextInput.attrs({
     placeholderTextColor: Colors.ft_color
 })`
     ${baseTextStyle}
-    border-radius: 10px;
-    border: solid 1px ${Colors.br_color};
+    border-style: solid;
+    border-bottom-color: ${Colors.ft_color};
+    border-bottom-width: 1px;
     width: 291px;
     height: 50px;
     padding: 12.5px;
