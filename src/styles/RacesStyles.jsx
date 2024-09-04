@@ -50,8 +50,3 @@ export const RaceLocation = styled.Text`
   margin-top: 4px;
 `;
 
-export const RaceSeason = styled.Text`
-  font-size: 12px;
-  color: ${Colors.br_color};
-  margin-top: 4px;
-`;

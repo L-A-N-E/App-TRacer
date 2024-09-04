@@ -35,10 +35,9 @@ const RacesScreen = () => {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <RaceItem>
-            <RaceDate>{item.date}</RaceDate>
-            <RaceContent>{item.content}</RaceContent>
-            <RaceLocation>{item.country} ({item.countryCode})</RaceLocation>
-            <RaceSeason>Season: {item.season}</RaceSeason>
+            <RaceDate>{item.countryCode}</RaceDate>
+            <RaceContent>{item.circuit}</RaceContent>
+            <RaceContent>{item.date}</RaceContent>
           </RaceItem>
         )}
         contentContainerStyle={{ marginTop: 16 }}
