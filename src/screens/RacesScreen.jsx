@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, ImageBackground, View, Text } from 'react-native';
+import { FlatList, View, StyleSheet, Image } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 // Importando os dados
 import sampleFormulaERacesData from '../constant/racesData.jsx'; 
-import { RacesContainer, RacesTabContainer, RacesTab, RacesTabText, RaceItem, RaceDate, RaceContent } from '../styles/RacesStyles';
+// Importando estilo
+import { RacesContainer, RacesTabContainer, RacesTab, RacesTabText, RaceItem, RaceDate, RaceContent, RaceItemContainer, RaceCountry, RaceFlag, RaceContainerView, RaceGradient } from '../styles/RacesStyles';
 
 const RacesScreen = () => {
   const [currentTab, setCurrentTab] = useState('upcoming');
@@ -17,16 +19,18 @@ const RacesScreen = () => {
   
 
   const renderItem = ({ item }) => {
-    const imageSource = item.imageSource;
 
     return (
-      <ImageBackground source={imageSource}>
-        <RaceItem>
-          <RaceDate>{item.countryCode}</RaceDate>
+      <RaceGradient>
+        <RaceContainerView>
+          <RaceCountry>{item.countryCode}</RaceCountry>
+          <RaceDate>{item.date}</RaceDate>
           <RaceContent>{item.circuit}</RaceContent>
-          <RaceContent>{item.date}</RaceContent>
-        </RaceItem>
-      </ImageBackground>
+        </RaceContainerView>
+        <View>
+          <RaceFlag source={item.imageSource} />
+        </View>
+      </RaceGradient>
     );
   };
 
@@ -50,9 +54,20 @@ const RacesScreen = () => {
         data={races}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
+        contentContainerStyle={{ 
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 10
+        }}
       />
     </RacesContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  flags: {
+    height: 100,
+  }
+})
 
 export default RacesScreen;
