@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 import Colors from "../constant/Colors";
-import {LinearGradient} from 'expo-linear-gradient';
+import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export const RacesContainer = styled(SafeAreaView)`
@@ -54,11 +54,11 @@ export const RaceFlag = styled.Image`
   width: 130px;
   border-radius: 20px 0 20px 0;
 `
-export const RaceGradient = styled(LinearGradient).attrs(() => ({
+export const RaceGradient = styled(LinearGradient).attrs({
   colors: [ Colors.blk, Colors.red_color, Colors.ft_color], 
   start: { x: 0, y: 2 },
   end: { x: 1, y: 0 },
-}))`
+})`
   justify-content: space-between;
   flex-direction: row;
   background-color: ${Colors.red_color};
