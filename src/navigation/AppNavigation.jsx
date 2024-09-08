@@ -36,8 +36,6 @@ const AppNavigator = () => {
         tabBarInactiveTintColor: '#000',
         tabBarStyle: {
           backgroundColor: '#EDEDED',
-          borderTopEndRadius: 30, 
-          borderTopStartRadius: 30,
         },
         tabBarLabelStyle: {
           display: 'none'
