@@ -42,6 +42,7 @@ const AppNavigator = () => {
         tabBarLabelStyle: {
           display: 'none'
         },
+        headerShown: false
       })}
       initialRouteName="Home"
     >

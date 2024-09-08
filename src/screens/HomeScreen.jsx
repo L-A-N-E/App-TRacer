@@ -4,6 +4,7 @@ import { auth } from '../firebase/firebaseConfig';
 import { handleLogout } from '../utils/authUtils';
 // Importando tela
 import LoadingScreen from './LoadingScreen'
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HomeScreen = () => {
   const [user, setUser] = useState(null);
@@ -19,11 +20,11 @@ const HomeScreen = () => {
   }
 
   return (
-    <View>
+    <SafeAreaView>
       <Text>Bem-vindo, {user.displayName || 'Usuário'}!</Text>
       <Text>{user.email}</Text>
       <Button title="Logout" onPress={handleLogout} />
-    </View>
+    </SafeAreaView>
   );
 };
 

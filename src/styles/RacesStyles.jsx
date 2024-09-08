@@ -1,8 +1,9 @@
 import styled from "styled-components/native";
 import Colors from "../constant/Colors";
 import {LinearGradient} from 'expo-linear-gradient';
+import { SafeAreaView } from "react-native-safe-area-context";
 
-export const RacesContainer = styled.View`
+export const RacesContainer = styled(SafeAreaView)`
   flex: 1;
   background-color: ${Colors.ft_color};
 `;
