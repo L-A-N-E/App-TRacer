@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { TeamButtons, TeamLogo, TeamName } from '../styles/HomeStyles';
 
 const TeamButton = ({ team, onSelect }) => {
   return (
-    <TouchableOpacity onPress={() => onSelect(team)}>
-      <Image source={team.imageSource} />
-      <Text>{team.team}</Text>
-    </TouchableOpacity>
+    <TeamButtons onPress={() => onSelect(team)}>
+      <TeamLogo source={team.imageSource} />
+      <TeamName>{team.team}</TeamName>
+    </TeamButtons>
   );
 };
 
