@@ -1,5 +1,6 @@
 import styled from "styled-components/native";
 import Colors from "../constant/Colors";
+import {LinearGradient} from 'expo-linear-gradient';
 
 export const RacesContainer = styled.View`
   flex: 1;
@@ -23,30 +24,43 @@ export const RacesTabText = styled.Text`
   font-weight: bold;
 `;
 
-export const RaceItem = styled.View`
+export const RaceContainerView = styled.View`
   padding: 12px;
-  margin: 10px;
-  border-bottom-width: 2px;
-  border-bottom-color: ${Colors.blk};
-  background-color: ${Colors.red_color};
-  border-radius: 4px;
-  margin-bottom: 5px;
-`;
-
-export const RaceDate = styled.Text`
+  justify-content: center;
+  align-items: start;
+  gap: 5px;
+`
+export const RaceCountry = styled.Text`
   color: ${Colors.ft_color};
-  font-weight: bold;
-  font-size: 18px;
+  font-family: 'Dragrace';
+  font-size: 30px;
 `;
 
 export const RaceContent = styled.Text`
   font-size: 14px;
+  font-weight: 300;
   color: ${Colors.ft_color};
 `;
 
-export const RaceLocation = styled.Text`
-  font-size: 12px;
+export const RaceDate= styled.Text`
+  font-size: 14px;
+  font-weight: 900;
   color: ${Colors.br_color};
-  margin-top: 4px;
 `;
 
+export const RaceFlag = styled.Image`
+  height: 110px;
+  width: 130px;
+  border-radius: 20px 0 20px 0;
+`
+export const RaceGradient = styled(LinearGradient).attrs(() => ({
+  colors: [ Colors.blk, Colors.red_color, Colors.ft_color], 
+  start: { x: 0, y: 2 },
+  end: { x: 1, y: 0 },
+}))`
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: ${Colors.red_color};
+  width: 95%;
+  border-radius: 20px 0 20px 0;
+`;

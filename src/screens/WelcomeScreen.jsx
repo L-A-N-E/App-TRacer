@@ -5,7 +5,7 @@ import { AuthBackground, AuthButton, AuthButtonText, AuthView, AuthTitle } from 
 
 const WelcomeScreen = ({ navigation }) => {
   return (
-    <AuthBackground source={require('../assets/images/background.png')}>
+    <AuthBackground source={require('../assets/images/background/background.png')}>
       <AuthView>
         <AuthTitle>Wellcome!</AuthTitle>
         <AuthButton onPress={() => navigation.navigate('LoginScreen')}>

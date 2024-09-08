@@ -1,20 +1,40 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { FlatList, View, StyleSheet, Image } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 // Importando os dados
 import sampleFormulaERacesData from '../constant/racesData.jsx'; 
-import { RacesContainer, RacesTabContainer, RacesTab, RacesTabText, RaceItem, RaceDate,  RaceContent, RaceLocation, RaceSeason } from '../styles/RacesStyles';
+// Importando estilo
+import { RacesContainer, RacesTabContainer, RacesTab, RacesTabText, RaceItem, RaceDate, RaceContent, RaceItemContainer, RaceCountry, RaceFlag, RaceContainerView, RaceGradient } from '../styles/RacesStyles';
 
 const RacesScreen = () => {
   const [currentTab, setCurrentTab] = useState('upcoming');
   const [races, setRaces] = useState([]);
 
   useEffect(() => {
-
+    // Atualize as corridas quando a aba atual mudar
     setRaces(sampleFormulaERacesData[currentTab]);
 
   }, [currentTab]);
 
-  return (
+  
+
+  const renderItem = ({ item }) => {
+
+    return (
+      <RaceGradient>
+        <RaceContainerView>
+          <RaceCountry>{item.countryCode}</RaceCountry>
+          <RaceDate>{item.date}</RaceDate>
+          <RaceContent>{item.circuit}</RaceContent>
+        </RaceContainerView>
+        <View>
+          <RaceFlag source={item.imageSource} />
+        </View>
+      </RaceGradient>
+    );
+  };
+
+  return (  
     <RacesContainer>
       <RacesTabContainer>
         <RacesTab
@@ -33,17 +53,21 @@ const RacesScreen = () => {
       <FlatList
         data={races}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <RaceItem>
-            <RaceDate>{item.countryCode}</RaceDate>
-            <RaceContent>{item.circuit}</RaceContent>
-            <RaceContent>{item.date}</RaceContent>
-          </RaceItem>
-        )}
-        contentContainerStyle={{ marginTop: 16 }}
+        renderItem={renderItem}
+        contentContainerStyle={{ 
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 10
+        }}
       />
     </RacesContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  flags: {
+    height: 100,
+  }
+})
 
 export default RacesScreen;

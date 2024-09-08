@@ -21,7 +21,7 @@ const SignUpScreen = ({ navigation }) => {
   };
 
   return (
-    <AuthBackground source={require('../assets/images/background.png')}>
+    <AuthBackground source={require('../assets/images/background/background.png')}>
       <AuthView>
       <AuthTitle>Create <AuthBold>NOW</AuthBold></AuthTitle>
         <AuthInputsView>

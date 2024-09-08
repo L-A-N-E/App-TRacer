@@ -12,7 +12,7 @@ const LoginScreen = ({ email, setEmail, password, setPassword, isLogin, setIsLog
   };
 
   return (
-    <AuthBackground source={require('../assets/images/background.png')}>
+    <AuthBackground source={require('../assets/images/background/background.png')}>
       <AuthView>
         <AuthTitle>Login <AuthBold>NOW</AuthBold></AuthTitle>
         <AuthInputsView>
