@@ -1,12 +1,16 @@
+// Importando dependencias
 import styled from 'styled-components';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
+// Importando constante
 import Colors from '../constant/Colors';
 
 export const HomeSafeView = styled(SafeAreaView)`
   flex: 1;
   background-color: ${Colors.ft_color};
 `;
+
+// Estilos da seleção de time
 
 export const TeamSelectGradient = styled(LinearGradient).attrs({
     colors: [ Colors.red_color2, Colors.red_color], 
@@ -52,4 +56,33 @@ export const TeamLogo = styled.Image`
     object-fit: contain;
     width: 22%;
 `
-  
+// Estilos da página principal do Home
+
+export const HelloWellcome = styled.ImageBackground`
+    width: 100%;
+    height: 200px;
+    align-items: center;
+    justify-content: flex-end;
+`
+
+export const HomeWellcomeText = styled.Text`
+    font-family: 'Montserrat';
+    font-weight: 900;
+    font-size: 24px;
+    color: ${Colors.ft_color};
+    opacity: 1;
+
+`
+
+export const HomeText = styled.Text`
+    font-family: 'Montserrat';
+    font-weight: bold;
+    text-transform: uppercase;
+    color: ${Colors.ft_color};
+`
+
+export const HomeContainerText = styled.View`
+    width: 90%;
+    gap: 2px;
+    padding: 30px 0;
+`
