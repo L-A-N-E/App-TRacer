@@ -1,5 +1,7 @@
-import { TextInput, Text, View } from 'react-native'
+// Importando dependencias
+import { View } from 'react-native'
 import React from 'react'
+// Importando estilos
 import { AuthInput, AuthText } from '../styles/AuthStyles';
 
 const AuthInputs = ({ value, onChangeText, placeholder, isPassword }) => {
