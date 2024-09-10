@@ -1,5 +1,7 @@
+// Importando dependencias
 import React from 'react';
-import { TeamButtons, TeamLogo, TeamName } from '../styles/HomeStyles';
+// Importando estilos
+import { TeamButtons, TeamLogo, TeamName } from '../../styles/HomeStyles';
 
 const TeamButton = ({ team, onSelect }) => {
   return (

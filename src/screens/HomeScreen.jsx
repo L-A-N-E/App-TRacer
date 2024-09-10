@@ -1,18 +1,21 @@
 // Importando dependencias
 import React, { useEffect, useState } from 'react';
-import { Text, View, Image, FlatList } from 'react-native';
+import { Text, View, FlatList, StyleSheet } from 'react-native';
 // Importando autenticação
-import { auth } from '../firebase/firebaseConfig.jsx'; 
-// Importando telas
+import { auth } from '../firebase/firebaseConfig.jsx';
+// Importando tela
 import LoadingScreen from './LoadingScreen';
 // Importando componentes
-import TeamButton from '../components/TeamButton.jsx';
+import TeamButton from '../components/home/TeamButton.jsx';
+import NextRaceSection from '../components/home/NextRaceSection.jsx';
+import TeamPointsSection from '../components/home/TeamFavoriteSection.jsx';
 // Importando funções
 import { fetchFavoriteTeam, handleSetFavoriteTeam } from '../utils/homeUtils';
 // Importando dados
-import sampleFormulaETeamsData from '../constant/teamsData.jsx';  
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { HomeSafeView, TeamSelectGradient, TeamText } from '../styles/HomeStyles.jsx';
+import sampleFormulaETeamsData from '../constant/teamsData.jsx';
+// Importando estilos
+import { HomeSafeView, TeamSelectGradient, TeamText, HelloWellcome, HomeText, HomeWellcomeText, HomeContainerText } from '../styles/HomeStyles.jsx';
+import WellcomeHomeSection from '../components/home/WellcomeHomeSection.jsx';
 
 const HomeScreen = ({ navigation }) => {
   const [user, setUser] = useState(null);
@@ -29,8 +32,7 @@ const HomeScreen = ({ navigation }) => {
           const team = await fetchFavoriteTeam(user.uid);
           setFavoriteTeam(team);
         } catch (error) {
-          // Lidar com erros se necessário
-          console.log(error)
+          console.error('Error fetching data:', error);
         }
 
         setLoading(false);
@@ -49,12 +51,13 @@ const HomeScreen = ({ navigation }) => {
   };
 
   if (loading) {
-    return <LoadingScreen/>
+    return <LoadingScreen />;
   }
 
   return (
     <HomeSafeView>
       <View>
+        {/* Se o usuário ainda não escolheu seu time favorito, ele terá que escolher um */}
         {!favoriteTeam && (
           <TeamSelectGradient>
             <TeamText>Select your favorite team</TeamText>
@@ -70,13 +73,19 @@ const HomeScreen = ({ navigation }) => {
             />
           </TeamSelectGradient>
         )}
+        {/* Se o usuário ainda já escolheu um time favorito (verificado no FIREBASE), ele verá a tela do HOME */}
         {favoriteTeam && (
           <View>
-            <Text>Hello, {user.displayName} 👋</Text>
-            <Text>The nearest you can get to FE!</Text>
-            <Text>And have fun with others fans!</Text>
-            {/* <Image source={require('../assets/images/logo/FE_logo.png')}/> */}
-            <Text>Seu time favorito é {favoriteTeam}.</Text>
+            {/* Seção Wellcome Home */}
+            <WellcomeHomeSection user={user}/>
+
+            <Text>Your favorite team is {favoriteTeam}.</Text>
+
+            {/* Seção Próxima Corrida */}
+            <NextRaceSection navigation={navigation}/>
+
+            {/* Seção Pontos da Equipe */}
+            <TeamPointsSection teamName={favoriteTeam} />
           </View>
         )}
       </View>
