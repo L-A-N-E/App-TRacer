@@ -1,10 +1,13 @@
-// Importando dependencias
+// Importando dependências
 import React, { useEffect, useState } from 'react';
-import { Text, FlatList, TouchableOpacity } from 'react-native';
+import { Text, FlatList, TouchableOpacity, View, Dimensions, StyleSheet } from 'react-native';
 // Importando dados
 import sampleFormulaETeamsData from '../../constant/teamsData.jsx'; 
 // Importando Estilos
 import { HomePilots, HomePilotsText, HomeUpRaceContainer, HomeUpRaces, HomeUpText, HomeUpTextContainer, HomeUpViewMoreText } from '../../styles/HomeStyles.jsx';
+
+// Obter largura da tela
+const { width } = Dimensions.get('window');
 
 const TeamPointsSection = ({ teamName, navigation }) => {
   const [teamPoints, setTeamPoints] = useState(null);
@@ -40,14 +43,19 @@ const TeamPointsSection = ({ teamName, navigation }) => {
             data={teamPoints.drivers}
             keyExtractor={item => item.name}
             renderItem={({ item }) => (
-              < HomePilots>
+              <HomePilots> 
                 <HomePilotsText>{item.name}: {item.points_last_season} points</HomePilotsText>
-                <HomeUpViewMoreText>View More</HomeUpViewMoreText >
-              </ HomePilots>
+                <HomeUpViewMoreText>View More</HomeUpViewMoreText>
+              </HomePilots>
             )}
             horizontal
             showsHorizontalScrollIndicator={false}
             pagingEnabled
+            getItemLayout={(data, index) => ({
+              length: width, 
+              offset: width * index, 
+              index,
+            })}
           />
         </HomeUpRaceContainer>
       ) : (

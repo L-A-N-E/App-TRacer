@@ -2,8 +2,12 @@
 import styled from 'styled-components';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Dimensions } from 'react-native';
 // Importando constante
 import Colors from '../constant/Colors';
+
+// Obter largura da tela
+const { width } = Dimensions.get('window');
 
 export const HomeSafeView = styled(SafeAreaView)`
   flex: 1;
@@ -162,7 +166,7 @@ export const HomeUpViewMoreText = styled.Text`
 // Estilos para os Pilotos
 
 export const HomePilots = styled.View`
-    width: 300px;
+    width: ${width - 60}px ;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
