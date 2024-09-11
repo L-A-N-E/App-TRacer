@@ -30,7 +30,7 @@ const TeamPointsSection = ({ teamName, navigation }) => {
   return (
     <HomeUpRaces>
       <HomeUpTextContainer>
-        <Text>Pilots</Text>
+        <HomeUpText>Pilots</HomeUpText>
         <TouchableOpacity onPress={() => navigation.navigate('Races')}>
           <HomeUpText>See All</HomeUpText>
         </TouchableOpacity>
