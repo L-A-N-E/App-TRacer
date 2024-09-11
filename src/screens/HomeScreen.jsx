@@ -42,7 +42,7 @@ const HomeScreen = ({ navigation }) => {
     };
 
     checkUser();
-  }, []);
+  }, [navigation]);
 
   const handleFavoriteTeamSelection = (team) => {
     if (user) {

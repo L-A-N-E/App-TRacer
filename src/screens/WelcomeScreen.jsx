@@ -12,7 +12,7 @@ const WelcomeScreen = ({ navigation }) => {
           <AuthButtonText>Login</AuthButtonText>
         </AuthButton>
         <AuthButton onPress={() => navigation.navigate('SignUp')} >
-          <AuthButtonText>Sign In</AuthButtonText>
+          <AuthButtonText>Sign Up</AuthButtonText>
         </AuthButton>
       </AuthView>
     </AuthBackground>
