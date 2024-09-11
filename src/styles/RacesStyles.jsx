@@ -55,9 +55,10 @@ export const RaceFlag = styled.Image`
   border-radius: 20px 0 20px 0;
 `
 export const RaceGradient = styled(LinearGradient).attrs({
-  colors: [ Colors.blk, Colors.red_color, Colors.ft_color], 
+  colors: [ Colors.red_color2, Colors.red_color, Colors.ft_color], 
   start: { x: 0, y: 2 },
   end: { x: 1, y: 0 },
+  locations: [0.1, 0.7, 1]
 })`
   justify-content: space-between;
   flex-direction: row;

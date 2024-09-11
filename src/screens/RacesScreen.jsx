@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, View, StyleSheet, Image } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import { FlatList, View, StyleSheet } from 'react-native';
 // Importando os dados
 import sampleFormulaERacesData from '../constant/racesData.jsx'; 
 // Importando estilo
