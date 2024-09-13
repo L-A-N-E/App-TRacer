@@ -6,9 +6,6 @@ import sampleFormulaETeamsData from '../../constant/teamsData.jsx';
 // Importando Estilos
 import { HomePilots, HomePilotsText, HomeUpRaceContainer, HomeUpRaces, HomeUpText, HomeUpTextContainer, HomeUpViewMoreText } from '../../styles/HomeStyles.jsx';
 
-// Obter largura da tela
-const { width } = Dimensions.get('window');
-
 const TeamPointsSection = ({ teamName, navigation }) => {
   const [teamPoints, setTeamPoints] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -51,11 +48,6 @@ const TeamPointsSection = ({ teamName, navigation }) => {
             horizontal
             showsHorizontalScrollIndicator={false}
             pagingEnabled
-            getItemLayout={(data, index) => ({
-              length: width, 
-              offset: width * index, 
-              index,
-            })}
           />
         </HomeUpRaceContainer>
       ) : (

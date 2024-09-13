@@ -76,9 +76,12 @@ const HomeScreen = ({ navigation }) => {
         <FlatList
           ListHeaderComponent={
             <HomeContainer>
+              {/* Seção de bem vidas */}
               <WellcomeHomeSection user={user}/>
-              <Text>Your favorite team is {favoriteTeam}.</Text>
+              {/* Seção do Ranking */}
+              {/* Seção da próxima corrida */}
               <NextRaceSection navigation={navigation}/>
+              {/* Seção dos ponstos pilotos */}
               <TeamPointsSection teamName={favoriteTeam} />
             </HomeContainer>
           }
