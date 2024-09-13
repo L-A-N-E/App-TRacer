@@ -7,14 +7,16 @@ import LoadingScreen from './LoadingScreen';
 // Importando componentes
 import TeamButton from '../components/home/TeamButton.jsx';
 import NextRaceSection from '../components/home/NextRaceSection.jsx';
-import TeamPointsSection from '../components/home/TeamFavoriteSection.jsx';
+import PilotPointsSection from '../components/home/PilotFavoriteSection.jsx';
 import WellcomeHomeSection from '../components/home/WellcomeHomeSection.jsx';
+import TeamPointsSection from '../components/home/TeamFavoriteSection.jsx';
 // Importando funções
 import { fetchFavoriteTeam, handleSetFavoriteTeam } from '../utils/homeUtils';
 // Importando dados
 import sampleFormulaETeamsData from '../constant/teamsData.jsx';
 // Importando estilos
 import { HomeSafeView, TeamSelectGradient, TeamText, HomeContainer } from '../styles/HomeStyles.jsx';
+import RankingSection from '../components/home/RankingSection.jsx';
 
 const HomeScreen = ({ navigation }) => {
   const [user, setUser] = useState(null);
@@ -56,21 +58,19 @@ const HomeScreen = ({ navigation }) => {
   return (
     <HomeSafeView>
       {!favoriteTeam && (
-        <FlatList
-          ListHeaderComponent={
-            <TeamSelectGradient>
-              <TeamText>Select your favorite team</TeamText>
-            </TeamSelectGradient>
-          }
-          data={sampleFormulaETeamsData.teams}
-          keyExtractor={item => item.id}
-          renderItem={({ item }) => (
-            <TeamButton
-              team={item}
-              onSelect={handleFavoriteTeamSelection}
-            />
-          )}
-        />
+        <TeamSelectGradient>
+          <TeamText>Select your favorite team</TeamText>
+          <FlatList
+            data={sampleFormulaETeamsData.teams}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => (
+              <TeamButton
+                team={item}
+                onSelect={handleFavoriteTeamSelection}
+              />
+            )}
+          />
+        </TeamSelectGradient>
       )}
       {favoriteTeam && (
         <FlatList
@@ -79,10 +79,13 @@ const HomeScreen = ({ navigation }) => {
               {/* Seção de bem vidas */}
               <WellcomeHomeSection user={user}/>
               {/* Seção do Ranking */}
+              <RankingSection/>
               {/* Seção da próxima corrida */}
               <NextRaceSection navigation={navigation}/>
-              {/* Seção dos ponstos pilotos */}
-              <TeamPointsSection teamName={favoriteTeam} />
+              {/* Seção dos pontos pilotos */}
+              <PilotPointsSection teamName={favoriteTeam} />
+              {/* Seção dos pontos do time */}
+              <TeamPointsSection teamName={favoriteTeam}/>
             </HomeContainer>
           }
           data={[]}

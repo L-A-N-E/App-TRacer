@@ -93,6 +93,25 @@ export const HomeContainerText = styled.View`
     padding: 30px 10px;
 `
 
+// Estilos para ranking
+
+export const HomeRankingContainer = styled(LinearGradient).attrs({
+    colors: [ Colors.red_color2, Colors.red_color], 
+    start: { x: 0, y: 2 },
+    end: { x: 1.2, y: 0 },
+    locations: [0.2,1],
+})`
+    width:100%;
+    padding: 20px;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 20px;
+    justify-content: space-around;
+    border-radius: 0 0 0 10px;
+
+`;
+
+
 // Estilos para próxima corrida
 
 export const HomeContainer = styled.View`
@@ -167,13 +186,36 @@ export const HomeUpViewMoreText = styled.Text`
 
 export const HomePilots = styled.View`
     width: ${width - 60}px ;
+    height: 70px;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
 `
-
+export const HomePilotsTextContainer = styled.View`
+    width: 70%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+`
 export const HomePilotsText = styled.Text`
+    font-family: 'Montserrat';
     color: ${Colors.ft_color};
     text-transform: uppercase;
-    font-weight: 800;
+    font-weight: 400;
+`
+
+// Estilos para o time
+
+export const HomeTeamTextContainer = styled.View`
+    height: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+`
+
+export const HomeTeam = styled.View`
+    width: ${width - 60}px ;
+    height: 70px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
 `

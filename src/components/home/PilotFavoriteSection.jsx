@@ -1,19 +1,20 @@
+// Importando dependências
 import React, { useEffect, useState } from 'react';
-import { Text, FlatList, TouchableOpacity, View } from 'react-native';
+import { Text, FlatList, TouchableOpacity, View, Dimensions, StyleSheet } from 'react-native';
 // Importando dados
 import sampleFormulaETeamsData from '../../constant/teamsData.jsx'; 
 // Importando Estilos
-import { HomePilots, HomePilotsText, HomeUpRaceContainer, HomeUpTextContainer, HomeUpText, HomeUpViewMoreText, HomeUpRaces, HomeTeamTextContainer, HomeTeam } from '../../styles/HomeStyles.jsx';
+import { HomePilots, HomePilotsText, HomePilotsTextContainer, HomeTeamTextContainer, HomeUpRaceContainer, HomeUpRaces, HomeUpText, HomeUpTextContainer, HomeUpViewMoreText } from '../../styles/HomeStyles.jsx';
 
-const TeamPointsSection = ({ teamName, navigation }) => {
-  const [teamPoints, setTeamPoints] = useState([]);
+const PilotPointsSection = ({ teamName, navigation }) => {
+  const [teamPoints, setTeamPoints] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getTeamPoints = () => {
       const team = sampleFormulaETeamsData.teams.find(team => team.team === teamName);
       if (team) {
-        setTeamPoints([team]); 
+        setTeamPoints(team);
       }
       setLoading(false);
     };
@@ -26,27 +27,33 @@ const TeamPointsSection = ({ teamName, navigation }) => {
   return (
     <HomeUpRaces>
       <HomeUpTextContainer>
-        <HomeUpText>Team</HomeUpText>
+        <HomeUpText>Pilots</HomeUpText>
         <TouchableOpacity onPress={() => navigation.navigate('Races')}>
           <HomeUpText>See All</HomeUpText>
         </TouchableOpacity>
       </HomeUpTextContainer>
       {loading ? (
         <Text>Loading team points...</Text>
-      ) : teamPoints.length > 0 ? (
+      ) : teamPoints ? (
         <HomeUpRaceContainer>
           <FlatList
-            data={teamPoints}
-            keyExtractor={item => item.team}
+            data={teamPoints.drivers}
+            keyExtractor={item => item.name}
             renderItem={({ item }) => (
-              <HomeTeam>
+              <HomePilots>
                 <HomeTeamTextContainer>
-                    <HomePilotsText>{item.team}</HomePilotsText>
-                    <HomePilotsText>Total Points: {item.total_points}</HomePilotsText>
+                  <HomePilotsText>{item.name}</HomePilotsText>
+                  <HomePilotsTextContainer>
+                    <HomePilotsText>POS {item.final_ranking}</HomePilotsText>
+                    <HomePilotsText>Points {item.points_last_season}</HomePilotsText>
+                  </HomePilotsTextContainer>
                 </HomeTeamTextContainer>
                 <HomeUpViewMoreText>View More</HomeUpViewMoreText>
-              </HomeTeam>
+              </HomePilots>
             )}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            pagingEnabled
           />
         </HomeUpRaceContainer>
       ) : (
@@ -56,4 +63,4 @@ const TeamPointsSection = ({ teamName, navigation }) => {
   );
 };
 
-export default TeamPointsSection;
+export default PilotPointsSection;
