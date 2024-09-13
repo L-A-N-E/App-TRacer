@@ -4,7 +4,7 @@ import { Text, FlatList, TouchableOpacity, View, Dimensions, StyleSheet } from '
 // Importando dados
 import sampleFormulaETeamsData from '../../constant/teamsData.jsx'; 
 // Importando Estilos
-import { HomePilots, HomePilotsText, HomeUpRaceContainer, HomeUpRaces, HomeUpText, HomeUpTextContainer, HomeUpViewMoreText } from '../../styles/HomeStyles.jsx';
+import { HomePilots, HomePilotsText, HomePilotsTextContainer, HomeTeamTextContainer, HomeUpRaceContainer, HomeUpRaces, HomeUpText, HomeUpTextContainer, HomeUpViewMoreText } from '../../styles/HomeStyles.jsx';
 
 const PilotPointsSection = ({ teamName, navigation }) => {
   const [teamPoints, setTeamPoints] = useState(null);
@@ -40,8 +40,14 @@ const PilotPointsSection = ({ teamName, navigation }) => {
             data={teamPoints.drivers}
             keyExtractor={item => item.name}
             renderItem={({ item }) => (
-              <HomePilots> 
-                <HomePilotsText>{item.name}: {item.points_last_season} points</HomePilotsText>
+              <HomePilots>
+                <HomeTeamTextContainer>
+                  <HomePilotsText>{item.name}</HomePilotsText>
+                  <HomePilotsTextContainer>
+                    <HomePilotsText>POS {item.final_ranking}</HomePilotsText>
+                    <HomePilotsText>Points {item.points_last_season}</HomePilotsText>
+                  </HomePilotsTextContainer>
+                </HomeTeamTextContainer>
                 <HomeUpViewMoreText>View More</HomeUpViewMoreText>
               </HomePilots>
             )}

@@ -167,11 +167,17 @@ export const HomeUpViewMoreText = styled.Text`
 
 export const HomePilots = styled.View`
     width: ${width - 60}px ;
+    height: 70px;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
 `
-
+export const HomePilotsTextContainer = styled.View`
+    width: 70%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+`
 export const HomePilotsText = styled.Text`
     font-family: 'Montserrat';
     color: ${Colors.ft_color};
