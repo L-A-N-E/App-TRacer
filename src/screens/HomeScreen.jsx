@@ -57,21 +57,19 @@ const HomeScreen = ({ navigation }) => {
   return (
     <HomeSafeView>
       {!favoriteTeam && (
-        <FlatList
-          ListHeaderComponent={
-            <TeamSelectGradient>
-              <TeamText>Select your favorite team</TeamText>
-            </TeamSelectGradient>
-          }
-          data={sampleFormulaETeamsData.teams}
-          keyExtractor={item => item.id}
-          renderItem={({ item }) => (
-            <TeamButton
-              team={item}
-              onSelect={handleFavoriteTeamSelection}
-            />
-          )}
-        />
+        <TeamSelectGradient>
+          <TeamText>Select your favorite team</TeamText>
+          <FlatList
+            data={sampleFormulaETeamsData.teams}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => (
+              <TeamButton
+                team={item}
+                onSelect={handleFavoriteTeamSelection}
+              />
+            )}
+          />
+        </TeamSelectGradient>
       )}
       {favoriteTeam && (
         <FlatList
