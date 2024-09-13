@@ -3,7 +3,7 @@ import { Text, FlatList, TouchableOpacity, View } from 'react-native';
 // Importando dados
 import sampleFormulaETeamsData from '../../constant/teamsData.jsx'; 
 // Importando Estilos
-import { HomePilots, HomePilotsText, HomeUpRaceContainer, HomeUpTextContainer, HomeUpText, HomeUpViewMoreText, HomeUpRaces } from '../../styles/HomeStyles.jsx';
+import { HomePilots, HomePilotsText, HomeUpRaceContainer, HomeUpTextContainer, HomeUpText, HomeUpViewMoreText, HomeUpRaces, HomeTeamTextContainer, HomeTeam } from '../../styles/HomeStyles.jsx';
 
 const TeamPointsSection = ({ teamName, navigation }) => {
   const [teamPoints, setTeamPoints] = useState([]);
@@ -39,13 +39,13 @@ const TeamPointsSection = ({ teamName, navigation }) => {
             data={teamPoints}
             keyExtractor={item => item.team}
             renderItem={({ item }) => (
-              <HomePilots>
-                <View>
+              <HomeTeam>
+                <HomeTeamTextContainer>
                     <HomePilotsText>{item.team}</HomePilotsText>
                     <HomePilotsText>Total Points: {item.total_points}</HomePilotsText>
-                </View>
+                </HomeTeamTextContainer>
                 <HomeUpViewMoreText>View More</HomeUpViewMoreText>
-              </HomePilots>
+              </HomeTeam>
             )}
           />
         </HomeUpRaceContainer>

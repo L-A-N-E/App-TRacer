@@ -173,7 +173,24 @@ export const HomePilots = styled.View`
 `
 
 export const HomePilotsText = styled.Text`
+    font-family: 'Montserrat';
     color: ${Colors.ft_color};
     text-transform: uppercase;
-    font-weight: 800;
+    font-weight: 400;
+`
+
+// Estilos para o time
+
+export const HomeTeamTextContainer = styled.View`
+    height: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+`
+
+export const HomeTeam = styled.View`
+    width: ${width - 60}px ;
+    height: 70px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
 `
