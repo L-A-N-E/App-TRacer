@@ -15,6 +15,7 @@ import { fetchFavoriteTeam, handleSetFavoriteTeam } from '../utils/homeUtils';
 import sampleFormulaETeamsData from '../constant/teamsData.jsx';
 // Importando estilos
 import { HomeSafeView, TeamSelectGradient, TeamText, HomeContainer } from '../styles/HomeStyles.jsx';
+import TeamPointsSection from '../components/home/TeamFavoriteSection.jsx';
 
 const HomeScreen = ({ navigation }) => {
   const [user, setUser] = useState(null);
@@ -81,8 +82,10 @@ const HomeScreen = ({ navigation }) => {
               {/* Seção do Ranking */}
               {/* Seção da próxima corrida */}
               <NextRaceSection navigation={navigation}/>
-              {/* Seção dos ponstos pilotos */}
+              {/* Seção dos pontos pilotos */}
               <PilotPointsSection teamName={favoriteTeam} />
+              {/* Seção dos pontos do time */}
+              <TeamPointsSection teamName={favoriteTeam}/>
             </HomeContainer>
           }
           data={[]}
