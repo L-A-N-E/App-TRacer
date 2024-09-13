@@ -16,6 +16,7 @@ import { fetchFavoriteTeam, handleSetFavoriteTeam } from '../utils/homeUtils';
 import sampleFormulaETeamsData from '../constant/teamsData.jsx';
 // Importando estilos
 import { HomeSafeView, TeamSelectGradient, TeamText, HomeContainer } from '../styles/HomeStyles.jsx';
+import RankingSection from '../components/home/RankingSection.jsx';
 
 const HomeScreen = ({ navigation }) => {
   const [user, setUser] = useState(null);
@@ -78,6 +79,7 @@ const HomeScreen = ({ navigation }) => {
               {/* Seção de bem vidas */}
               <WellcomeHomeSection user={user}/>
               {/* Seção do Ranking */}
+              <RankingSection/>
               {/* Seção da próxima corrida */}
               <NextRaceSection navigation={navigation}/>
               {/* Seção dos pontos pilotos */}

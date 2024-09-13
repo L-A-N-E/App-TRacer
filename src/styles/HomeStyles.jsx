@@ -93,6 +93,25 @@ export const HomeContainerText = styled.View`
     padding: 30px 10px;
 `
 
+// Estilos para ranking
+
+export const HomeRankingContainer = styled(LinearGradient).attrs({
+    colors: [ Colors.red_color2, Colors.red_color], 
+    start: { x: 0, y: 2 },
+    end: { x: 1.2, y: 0 },
+    locations: [0.2,1],
+})`
+    width:100%;
+    padding: 20px;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 20px;
+    justify-content: space-around;
+    border-radius: 0 0 0 10px;
+
+`;
+
+
 // Estilos para próxima corrida
 
 export const HomeContainer = styled.View`
