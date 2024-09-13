@@ -7,7 +7,7 @@ import LoadingScreen from './LoadingScreen';
 // Importando componentes
 import TeamButton from '../components/home/TeamButton.jsx';
 import NextRaceSection from '../components/home/NextRaceSection.jsx';
-import TeamPointsSection from '../components/home/TeamFavoriteSection.jsx';
+import PilotPointsSection from '../components/home/PilotFavoriteSection.jsx';
 import WellcomeHomeSection from '../components/home/WellcomeHomeSection.jsx';
 // Importando funções
 import { fetchFavoriteTeam, handleSetFavoriteTeam } from '../utils/homeUtils';
@@ -82,7 +82,7 @@ const HomeScreen = ({ navigation }) => {
               {/* Seção da próxima corrida */}
               <NextRaceSection navigation={navigation}/>
               {/* Seção dos ponstos pilotos */}
-              <TeamPointsSection teamName={favoriteTeam} />
+              <PilotPointsSection teamName={favoriteTeam} />
             </HomeContainer>
           }
           data={[]}

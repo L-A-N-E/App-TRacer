@@ -6,7 +6,7 @@ import sampleFormulaETeamsData from '../../constant/teamsData.jsx';
 // Importando Estilos
 import { HomePilots, HomePilotsText, HomeUpRaceContainer, HomeUpRaces, HomeUpText, HomeUpTextContainer, HomeUpViewMoreText } from '../../styles/HomeStyles.jsx';
 
-const TeamPointsSection = ({ teamName, navigation }) => {
+const PilotPointsSection = ({ teamName, navigation }) => {
   const [teamPoints, setTeamPoints] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -57,4 +57,4 @@ const TeamPointsSection = ({ teamName, navigation }) => {
   );
 };
 
-export default TeamPointsSection;
+export default PilotPointsSection;
