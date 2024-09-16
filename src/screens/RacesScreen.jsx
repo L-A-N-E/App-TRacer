@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, View, StyleSheet } from 'react-native';
+import { FlatList, View } from 'react-native';
 // Importando os dados
 import sampleFormulaERacesData from '../constant/racesData.jsx'; 
 // Importando estilo
-import { RacesContainer, RacesTabContainer, RacesTab, RacesTabText, RaceItem, RaceDate, RaceContent, RaceItemContainer, RaceCountry, RaceFlag, RaceContainerView, RaceGradient } from '../styles/RacesStyles';
+import { RacesContainer, RacesTabContainer, RacesTab, RacesTabText, RaceDate, RaceContent, RaceCountry, RaceFlag, RaceContainerView, RaceGradient } from '../styles/RacesStyles';
 
 const RacesScreen = () => {
   const [currentTab, setCurrentTab] = useState('upcoming');
@@ -14,8 +14,6 @@ const RacesScreen = () => {
     setRaces(sampleFormulaERacesData[currentTab]);
 
   }, [currentTab]);
-
-  
 
   const renderItem = ({ item }) => {
 
@@ -62,11 +60,5 @@ const RacesScreen = () => {
     </RacesContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  flags: {
-    height: 100,
-  }
-})
 
 export default RacesScreen;

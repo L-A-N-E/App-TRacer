@@ -11,7 +11,7 @@ const { width } = Dimensions.get('window');
 
 export const HomeSafeView = styled(SafeAreaView)`
   flex: 1;
-  background-color: ${Colors.ft_color};
+  background-color: ${Colors.red_color};
   width: 100%;
   align-items: center;
 `;
@@ -73,7 +73,7 @@ export const HelloWellcome = styled.ImageBackground`
 
 export const HomeWellcomeText = styled.Text`
     font-family: 'Montserrat';
-    font-weight: 900;
+    font-weight: bold;
     font-size: 24px;
     color: ${Colors.ft_color};
     opacity: 1;
@@ -135,11 +135,11 @@ export const HomeUpTextContainer = styled.View`
 export const HomeUpText = styled.Text`
     font-family: 'Montserrat';
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: bold;
 `
 
 export const HomeUpRaceContainer = styled(LinearGradient).attrs({
-    colors: [ Colors.red_color2, Colors.red_color], 
+    colors: [ '#D9072D', '#D9072D'], 
     start: { x: 0, y: 2 },
     end: { x: 1.2, y: 0 },
     locations: [0.2,1],
@@ -168,11 +168,11 @@ export const HomeUpRaceText = styled.Text`
     text-transform: uppercase;
     color: ${Colors.ft_color};
     font-size: 12px;
-    font-weight: 600;
+    font-weight: bold;
 `
 
 export const HomeUpViewMoreText = styled.Text`
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
     text-transform: uppercase;
     color: ${Colors.ft_color};
     background-color: ${Colors.fill_color1};
@@ -201,7 +201,7 @@ export const HomePilotsText = styled.Text`
     font-family: 'Montserrat';
     color: ${Colors.ft_color};
     text-transform: uppercase;
-    font-weight: 400;
+    font-weight: bold;
 `
 
 // Estilos para o time
