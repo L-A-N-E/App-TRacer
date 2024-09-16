@@ -4,24 +4,24 @@
     "slug": "app-tracer",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "",
+    "icon": "./src/assets/images/icons/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "",
+      "image": "./src/assets/images/icons/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#D9072D"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./src/assets/images/icons/adaptive-icon.png",
+        "backgroundColor": "#D9072D"
       }
     },
     "web": {
-      "favicon": ""
+      "favicon": "./src/assets/images/icons/favicon.png"
     },
     "plugins": [
       "expo-font"
