@@ -9,12 +9,24 @@ import { LogBox } from 'react-native';
 const TRacerScreen = ({ navigation }) => {
   const [user, setUser] = useState(null);
   const [TRpoints, setTRPoints] = useState(120);
+  const [totalPoints, setTotalPoints] = useState();
   const [pilots, setPilots] = useState([]);
   const [loading, setLoading] = useState(true);
 
   LogBox.ignoreLogs(['Non-serializable values were found in the navigation state']);
 
+  const sumPoints = () => {
+    let soma = 0;
+
+    pilots.map((pilot)=>{
+      soma += pilot.points
+    })
+
+    return soma
+  }
+
   useEffect(() => {
+    setTotalPoints(sumPoints);
     const checkUser = async () => {
       const user = auth.currentUser;
       if (user) {
@@ -98,7 +110,7 @@ const TRacerScreen = ({ navigation }) => {
               )}
             </View>
 
-            <Text>Total Points: 0</Text>
+            <Text>Total Points: {totalPoints}</Text>
           </View>
         }
         data={[]}

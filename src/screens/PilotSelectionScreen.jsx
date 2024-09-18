@@ -10,7 +10,7 @@ const PilotSelectionScreen = ({ navigation, route }) => {
 
   const handleSelectPilot = async (pilot) => {
     if (TRpoints >= pilot.cust_tr && pilots.length < 2) {
-      const updatedPilots = [...pilots, { name: pilot.name, points: 0 }];
+      const updatedPilots = [...pilots, { name: pilot.name, points: pilot.current_RacesPoints }];
       const userRef = doc(db, 'users', user.uid);
 
       try {
