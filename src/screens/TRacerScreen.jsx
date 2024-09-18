@@ -6,7 +6,6 @@ import LoadingScreen from './LoadingScreen';
 import { getDoc, doc } from 'firebase/firestore';
 import { LogBox } from 'react-native';
 
-
 const TRacerScreen = ({ navigation }) => {
   const [user, setUser] = useState(null);
   const [TRpoints, setTRPoints] = useState(120);
@@ -21,7 +20,6 @@ const TRacerScreen = ({ navigation }) => {
       if (user) {
         setUser(user);
         try {
-          // Fetch user data from Firestore
           const userDoc = await getDoc(doc(db, 'users', user.uid));
           if (userDoc.exists()) {
             const userData = userDoc.data();
@@ -42,6 +40,10 @@ const TRacerScreen = ({ navigation }) => {
     navigation.navigate('PilotSelection', { TRpoints, setTRPoints, pilots, setPilots, user });
   };
 
+  const navigateToPilotDetail = (pilot) => {
+    navigation.navigate('PilotDetail', { pilot });
+  };
+
   if (loading) {
     return <LoadingScreen />;
   }
@@ -56,28 +58,26 @@ const TRacerScreen = ({ navigation }) => {
                 <>
                   {pilots.length === 0 ? (
                     <>
-                      {/* Pilot Selection Section */}
                       <Text>Select Your Pilots</Text>
-                      <TouchableOpacity 
-                        onPress={navigateToPilotSelection}>
+                      <TouchableOpacity onPress={navigateToPilotSelection}>
                         <Text>Add Pilot</Text>
                       </TouchableOpacity>
-                      <TouchableOpacity 
-                        onPress={navigateToPilotSelection}>
+                      <TouchableOpacity onPress={navigateToPilotSelection}>
                         <Text>Add Pilot</Text>
                       </TouchableOpacity>
                     </>
                   ) : (
                     <>
-                      {/* Pilot Selection Section */}
                       <Text>Select Your Pilot</Text>
                       {pilots.map((pilot, index) => (
                         <View key={index}>
                           <Text>{pilot.name} - Points: {pilot.points}</Text>
+                          <TouchableOpacity onPress={() => navigateToPilotDetail(pilot)}>
+                            <Text>See Details</Text>
+                          </TouchableOpacity>
                         </View>
                       ))}
-                      <TouchableOpacity 
-                        onPress={navigateToPilotSelection}>
+                      <TouchableOpacity onPress={navigateToPilotSelection}>
                         <Text>Add Pilot</Text>
                       </TouchableOpacity>
                     </>
@@ -85,18 +85,19 @@ const TRacerScreen = ({ navigation }) => {
                 </>
               ) : (
                 <>
-                {/* Pilot Selection Section */}
-                <Text>Your Pilots</Text>
-                {pilots.map((pilot, index) => (
-                  <View key={index}>
-                    <Text>{pilot.name} - Points: {pilot.points}</Text>
-                  </View>
-                ))}
+                  <Text>Your Pilots</Text>
+                  {pilots.map((pilot, index) => (
+                    <View key={index} >
+                      <Text>{pilot.name} - Points: {pilot.points}</Text>
+                      <TouchableOpacity onPress={() => navigateToPilotDetail(pilot)}>
+                        <Text>See Details</Text>
+                      </TouchableOpacity>
+                    </View>
+                  ))}
                 </>
               )}
             </View>
 
-            {/* Total Points Display */}
             <Text>Total Points: 0</Text>
           </View>
         }
