@@ -10,13 +10,13 @@ import NextRaceSection from '../components/home/NextRaceSection.jsx';
 import PilotPointsSection from '../components/home/PilotFavoriteSection.jsx';
 import WellcomeHomeSection from '../components/home/WellcomeHomeSection.jsx';
 import TeamPointsSection from '../components/home/TeamFavoriteSection.jsx';
+import RankingSection from '../components/home/RankingSection.jsx';
 // Importando funções
 import { fetchFavoriteTeam, handleSetFavoriteTeam } from '../utils/homeUtils';
 // Importando dados
 import sampleFormulaETeamsData from '../constant/teamsData.jsx';
 // Importando estilos
 import { HomeSafeView, TeamSelectGradient, TeamText, HomeContainer } from '../styles/HomeStyles.jsx';
-import RankingSection from '../components/home/RankingSection.jsx';
 
 const HomeScreen = ({ navigation }) => {
   const [user, setUser] = useState(null);
