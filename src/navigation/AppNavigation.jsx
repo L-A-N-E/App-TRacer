@@ -32,7 +32,7 @@ const AppNavigator = () => {
             iconName = 'account'; 
           } else if (route.name === 'Ranking') {
             iconName = 'trophy'; 
-          } else if (route.name === 'TRacer') {
+          } else if (route.name === 'TRacerNav') {
             iconName = 'racing-helmet'; 
           }
 
@@ -62,7 +62,7 @@ const AppNavigator = () => {
     >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Ranking" component={RankingRace} />
-      <Tab.Screen name="TRacer" component={TRacerNavigation} />
+      <Tab.Screen name="TRacerNav" component={TRacerNavigation} />
       <Tab.Screen name="Races" component={RacesScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
