@@ -8,18 +8,15 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import HomeScreen from '../screens/HomeScreen';
 import RacesScreen from '../screens/RacesScreen'; 
 import ProfileScreen from '../screens/ProfileScreen'; 
-import TRacerScreen from '../screens/TRacerScreen';
+import TRacerNavigation from './TRacerNavigation';
 import RankingRace from '../screens/RankingRace';
 // Importando estilos
 import { NavigationTabIcon } from '../styles/NavigationStyles';
 
-
-// Obter largura da tela
-const { width } = Dimensions.get('window');
-
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
+  
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -65,7 +62,7 @@ const AppNavigator = () => {
     >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Ranking" component={RankingRace} />
-      <Tab.Screen name="TRacer" component={TRacerScreen} />
+      <Tab.Screen name="TRacer" component={TRacerNavigation} />
       <Tab.Screen name="Races" component={RacesScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
