@@ -3,7 +3,8 @@ import { FlatList, View } from 'react-native';
 // Importando os dados
 import sampleFormulaERacesData from '../constant/racesData.jsx'; 
 // Importando estilo
-import { RacesContainer, RacesTabContainer, RacesTab, RacesTabText, RaceDate, RaceContent, RaceCountry, RaceFlag, RaceContainerView, RaceGradient } from '../styles/RacesStyles';
+import { RacesContainer, RacesTabContainer, RacesTab, RacesTabText, RaceDate, RaceContent, RaceCountry, RaceFlag, RaceContainerView, RaceGradient, RacesSafeView } from '../styles/RacesStyles';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const RacesScreen = () => {
   const [currentTab, setCurrentTab] = useState('upcoming');
@@ -32,32 +33,34 @@ const RacesScreen = () => {
   };
 
   return (  
-    <RacesContainer>
-      <RacesTabContainer>
-        <RacesTab
-          isActive={currentTab === 'upcoming'}
-          onPress={() => setCurrentTab('upcoming')}
-        >
-          <RacesTabText>Upcoming E-Prix</RacesTabText>
-        </RacesTab>
-        <RacesTab
-          isActive={currentTab === 'past'}
-          onPress={() => setCurrentTab('past')}
-        >
-          <RacesTabText>Past E-Prix</RacesTabText>
-        </RacesTab>
-      </RacesTabContainer>
-      <FlatList
-        data={races}
-        keyExtractor={(item) => item.id}
-        renderItem={renderItem}
-        contentContainerStyle={{ 
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: 10
-        }}
-      />
+    <RacesSafeView>
+      <RacesContainer>
+        <RacesTabContainer>
+          <RacesTab
+            isActive={currentTab === 'upcoming'}
+            onPress={() => setCurrentTab('upcoming')}
+          >
+            <RacesTabText>Upcoming E-Prix</RacesTabText>
+          </RacesTab>
+          <RacesTab
+            isActive={currentTab === 'past'}
+            onPress={() => setCurrentTab('past')}
+          >
+            <RacesTabText>Past E-Prix</RacesTabText>
+          </RacesTab>
+        </RacesTabContainer>
+        <FlatList
+          data={races}
+          keyExtractor={(item) => item.id}
+          renderItem={renderItem}
+          contentContainerStyle={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: 10
+          }}
+        />
     </RacesContainer>
+    </RacesSafeView>
   );
 };
 
