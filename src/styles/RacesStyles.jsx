@@ -5,6 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export const RacesContainer = styled.View`
   flex: 1;
+  gap: 20px;
   background-color: ${Colors.ft_color};
 `;
 
@@ -16,7 +17,6 @@ export const RacesSafeView = styled(SafeAreaView)`
 
 export const RacesTabContainer = styled.View`
   flex-direction: row;
-  margin-bottom: 5px;
 `;
 
 export const RacesTab = styled.TouchableOpacity`
@@ -28,6 +28,7 @@ export const RacesTab = styled.TouchableOpacity`
 
 export const RacesTabText = styled.Text`
   color: ${Colors.ft_color};
+  text-transform: uppercase;
   font-family: 'Montserrat-ExtraBold';
 `;
 

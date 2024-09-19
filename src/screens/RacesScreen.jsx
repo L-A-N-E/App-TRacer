@@ -4,7 +4,6 @@ import { FlatList, View } from 'react-native';
 import sampleFormulaERacesData from '../constant/racesData.jsx'; 
 // Importando estilo
 import { RacesContainer, RacesTabContainer, RacesTab, RacesTabText, RaceDate, RaceContent, RaceCountry, RaceFlag, RaceContainerView, RaceGradient, RacesSafeView } from '../styles/RacesStyles';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 const RacesScreen = () => {
   const [currentTab, setCurrentTab] = useState('upcoming');
@@ -40,13 +39,13 @@ const RacesScreen = () => {
             isActive={currentTab === 'upcoming'}
             onPress={() => setCurrentTab('upcoming')}
           >
-            <RacesTabText>Upcoming E-Prix</RacesTabText>
+            <RacesTabText>Upcoming</RacesTabText>
           </RacesTab>
           <RacesTab
             isActive={currentTab === 'past'}
             onPress={() => setCurrentTab('past')}
           >
-            <RacesTabText>Past E-Prix</RacesTabText>
+            <RacesTabText>Past</RacesTabText>
           </RacesTab>
         </RacesTabContainer>
         <FlatList
@@ -56,7 +55,7 @@ const RacesScreen = () => {
           contentContainerStyle={{
             justifyContent: 'center',
             alignItems: 'center',
-            gap: 10
+            gap: 20
           }}
         />
     </RacesContainer>

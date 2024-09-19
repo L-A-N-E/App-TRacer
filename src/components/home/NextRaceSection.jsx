@@ -13,7 +13,7 @@ const NextRaceSection = ({ navigation }) => {
   return (
     <HomeUpRaces>
       <HomeUpTextContainer>
-        <HomeUpText>Upcoming Races</HomeUpText>
+        <HomeUpText>Next Race</HomeUpText>
         <TouchableOpacity onPress={() => navigation.navigate('Races')}>
           <HomeUpText>See All</HomeUpText>
         </TouchableOpacity>
