@@ -22,7 +22,7 @@ export const RacesTab = styled.TouchableOpacity`
 
 export const RacesTabText = styled.Text`
   color: ${Colors.ft_color};
-  font-weight: bold;
+  font-family: 'Montserrat-ExtraBold';
 `;
 
 export const RaceContainerView = styled.View`
@@ -38,14 +38,15 @@ export const RaceCountry = styled.Text`
 `;
 
 export const RaceContent = styled.Text`
-  font-size: 14px;
-  font-weight: 300;
+  font-size: 12px;
+  font-family: 'Montserrat-Light';
   color: ${Colors.ft_color};
 `;
 
 export const RaceDate= styled.Text`
   font-size: 14px;
-  font-weight: 900;
+  text-transform: uppercase;
+  font-family: 'Montserrat-Bold';
   color: ${Colors.br_color};
 `;
 

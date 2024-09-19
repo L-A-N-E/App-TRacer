@@ -51,11 +51,10 @@ export const TeamButtons = styled.TouchableOpacity`
     align-items: center;
 `
 export const TeamName = styled.Text`
-    font-family: 'Montserrat';
+    font-family: 'Montserrat-Regular';
     text-transform: uppercase;
     color: ${Colors.ft_color};
     font-size: 12px;
-    font-weight: 900;
 `
 
 export const TeamLogo = styled.Image`
@@ -72,8 +71,7 @@ export const HelloWellcome = styled.ImageBackground`
 `
 
 export const HomeWellcomeText = styled.Text`
-    font-family: 'Montserrat';
-    font-weight: bold;
+    font-family: 'Montserrat-ExtraBold';
     font-size: 24px;
     color: ${Colors.ft_color};
     opacity: 1;
@@ -81,8 +79,7 @@ export const HomeWellcomeText = styled.Text`
 `
 
 export const HomeText = styled.Text`
-    font-family: 'Montserrat';
-    font-weight: bold;
+    font-family: 'Montserrat-Regular';
     text-transform: uppercase;
     color: ${Colors.ft_color};
 `
@@ -133,9 +130,8 @@ export const HomeUpTextContainer = styled.View`
     background-color: ${Colors.br_color};
 `;
 export const HomeUpText = styled.Text`
-    font-family: 'Montserrat';
+    font-family: 'Montserrat-ExtraBold';
     text-transform: uppercase;
-    font-weight: bold;
 `
 
 export const HomeUpRaceContainer = styled(LinearGradient).attrs({
@@ -164,23 +160,21 @@ export const HomeUpRaceImage = styled.Image`
 `
 
 export const HomeUpRaceText = styled.Text`
-    font-family: 'Montserrat';
+    font-family: 'Montserrat-Regular';
     text-transform: uppercase;
     color: ${Colors.ft_color};
     font-size: 12px;
-    font-weight: bold;
 `
 
 export const HomeUpViewMoreText = styled.Text`
-    font-family: "Montserrat";
+    font-family: 'Montserrat-ExtraBold';
     text-transform: uppercase;
     color: ${Colors.ft_color};
     background-color: ${Colors.fill_color1};
     font-size: 12px;
-    font-weight: 800;
     border: solid 1px ${Colors.ft_color};
     padding: 4px 7px;
-    border-radius: 50px;
+    border-radius: 5px;
 `
 // Estilos para os Pilotos
 
@@ -198,10 +192,9 @@ export const HomePilotsTextContainer = styled.View`
     align-items: flex-end;
 `
 export const HomePilotsText = styled.Text`
-    font-family: 'Montserrat';
+    font-family: 'Montserrat-Regular';
     color: ${Colors.ft_color};
     text-transform: uppercase;
-    font-weight: bold;
 `
 
 // Estilos para o time

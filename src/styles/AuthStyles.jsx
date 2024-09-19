@@ -1,9 +1,10 @@
+// Importando estilos
 import styled from "styled-components/native"; 
+// Importando cores
 import Colors from "../constant/Colors";
-import { View, Text, TouchableOpacity } from "react-native";
 
 const baseTextStyle = `
-    font-family: 'Montserrat';
+    font-family: 'Montserrat-Light';
     color: ${Colors.ft_color};
 `;
 
@@ -25,7 +26,7 @@ export const AuthTitle = styled.Text`
 `;
 
 export const AuthBold = styled.Text`
-    font-weight: bold;
+    font-family: 'Montserrat-Bold';
 `;
 
 export const AuthButton = styled.TouchableOpacity`
@@ -46,12 +47,11 @@ export const AuthText = styled.Text`
 export const AuthLinkText = styled.Text`
     ${baseTextStyle}
     font-size: 12px;
-    font-weight: 600;
     text-transform: uppercase;
 `
 export const AuthButtonText = styled.Text`
-    ${baseTextStyle}
-    font-weight: bold;
+    font-family: 'Montserrat-Bold';
+    color: ${Colors.ft_color};
     font-size: 16px;
     text-transform: uppercase;
 `;

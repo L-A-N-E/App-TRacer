@@ -10,7 +10,10 @@ import LoadingScreen from './screens/LoadingScreen';
 const App = () => {
   // Carregar fontes 
   const [fontsLoaded] = useFonts({
-    'Montserrat': require('./assets/fonts/Montserrat-VariableFont_wght.ttf'),
+    'Montserrat-ExtraBold': require('./assets/fonts/Montserrat-ExtraBold.ttf'),
+    'Montserrat-Regular': require('./assets/fonts/Montserrat-Regular.ttf'),
+    'Montserrat-Bold': require('./assets/fonts/Montserrat-Bold.ttf'),
+    'Montserrat-Light': require('./assets/fonts/Montserrat-Light.ttf'),
     'Dragrace': require('./assets/fonts/Dragrace.ttf')
   });
 
