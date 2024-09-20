@@ -69,6 +69,11 @@ const HomeScreen = ({ navigation }) => {
                 onSelect={handleFavoriteTeamSelection}
               />
             )}
+            contentContainerStyle={{
+              justifyContent: 'center',
+              gap: 20
+            }}
+            showsVerticalScrollIndicator={false}
           />
         </TeamSelectGradient>
       )}

@@ -43,15 +43,18 @@ export const TeamText = styled.Text`
 `
 
 export const TeamButtons = styled.TouchableOpacity`
-    width: 100%;
+    width: ${width - 30}px;
     height: 70px;
+    padding: 20px;
+    border-radius: 10px 0 10px 0;
     flex-direction: row;
     box-sizing: border-box;
     gap:7px;
     align-items: center;
+    background-color: ${Colors.fill_color3};
 `
 export const TeamName = styled.Text`
-    font-family: 'Montserrat-Regular';
+    font-family: 'Montserrat-Bold';
     text-transform: uppercase;
     color: ${Colors.ft_color};
     font-size: 12px;
@@ -59,7 +62,8 @@ export const TeamName = styled.Text`
 
 export const TeamLogo = styled.Image`
     object-fit: contain;
-    width: 22%;
+    height: 50px;
+    width: 20%;
 `
 // Estilos da página principal do Home
 
