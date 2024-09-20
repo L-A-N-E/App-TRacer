@@ -63,6 +63,11 @@ const PilotSelectionScreen = ({ navigation, route }) => {
         data={availableTeams.flatMap(team => getAvailablePilots(team.drivers, pilots))} // Filtra todos os pilotos disponíveis
         keyExtractor={pilot => pilot.name} // Extrai chave única de cada piloto
         renderItem={renderPilotItem} // Renderiza cada piloto
+        contentContainerStyle={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 20,
+        }}
       />
     </View>
   );

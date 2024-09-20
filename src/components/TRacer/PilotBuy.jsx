@@ -1,34 +1,35 @@
 import React from 'react'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
+import { PilotButton, PilotBuyContainer, PilotButtonText, PilotContent, PilotCust, PilotBold, PilotImage, PilotName, PilotPoints, PilotPointsContainer, PilotPointsText, PilotPointsTitle, PilotsContainer } from '../../styles/PilotsStyles'
 
 const PilotBuy = ({pilot, handleConfirmPilotSelection}) => {
   return (
-    <View>
-        <Image source={pilot.imagePilot} />
-        <View>
-            <Text>{pilot.name}</Text>
-            <View>
-                <View>
-                    <Text>{pilot.lastRacePoints}</Text>
-                    <Text>Last</Text>
-                </View>
-                <View>
-                    <Text>{pilot.racesPoints_average}</Text>
-                    <Text>Average</Text>
-                </View>
-                <View>
-                    <Text>{pilot.races}</Text>
-                    <Text>Races</Text>
-                </View>
-            </View>
-            <View>
-                <Text>TR$ <Text>{pilot.cust_tr}</Text></Text>
-                <TouchableOpacity onPress={() => handleConfirmPilotSelection(pilot)}>
-                    <Text>Buy</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
-    </View>
+    <PilotsContainer>
+        <PilotImage source={pilot.imagePilot} />
+        <PilotContent>
+            <PilotName>{pilot.name}</PilotName>
+            <PilotPoints>
+                <PilotPointsContainer>
+                    <PilotPointsText>{pilot.lastRacePoints}</PilotPointsText>
+                    <PilotPointsTitle>Last</PilotPointsTitle>
+                </PilotPointsContainer>
+                <PilotPointsContainer>
+                    <PilotPointsText>{pilot.racesPoints_average}</PilotPointsText>
+                    <PilotPointsTitle>Average</PilotPointsTitle>
+                </PilotPointsContainer>
+                <PilotPointsContainer>
+                    <PilotPointsText>{pilot.races}</PilotPointsText>
+                    <PilotPointsTitle>Races</PilotPointsTitle>
+                </PilotPointsContainer>
+            </PilotPoints>
+            <PilotBuyContainer>
+                <PilotCust>TR$ <PilotBold>{pilot.cust_tr}</PilotBold></PilotCust>
+                <PilotButton onPress={() => handleConfirmPilotSelection(pilot)}>
+                    <PilotButtonText>Buy</PilotButtonText>
+                </PilotButton>
+            </PilotBuyContainer>
+        </PilotContent>
+    </PilotsContainer>
   )
 }
 
