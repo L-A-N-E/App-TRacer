@@ -22,8 +22,7 @@ const PilotSelectionScreen = ({ navigation, route }) => {
   const handleSelectPilot = async (pilot) => {
     if (TRpoints >= pilot.cust_tr && pilots.length < 2) {
       // Cria a nova lista de pilotos selecionados
-      const updatedPilots = [...pilots, { name: pilot.name, points: pilot.current_racesPoints }];
-      
+      const updatedPilots = [...pilots, { name: pilot.name, points: pilot.current_racesPoints, imagePilot: pilot.imagePilot }];
       const userRef = doc(db, 'users', user.uid);
   
       // Verifique a estrutura dos dados que você está atualizando
