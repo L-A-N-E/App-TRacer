@@ -3,7 +3,8 @@ import React from 'react';
 import {  Text, TouchableOpacity } from 'react-native';
 // Importando dados
 import sampleFormulaERacesData from '../../constant/racesData';
-import { HomeUpRaceContainer, HomeUpRaceImage, HomeUpRaces, HomeUpRaceText, HomeUpRaceTextContainer, HomeUpText, HomeUpTextContainer, HomeUpViewMoreText } from '../../styles/HomeStyles';
+// Importando estilos
+import { HomeUpRaceContainer, HomeUpRaceImage, HomeUpRaces, HomeUpRaceText, HomeUpRaceTextContainer, HomeUpText, HomeUpTextContainer } from '../../styles/HomeStyles';
 
 const NextRaceSection = ({ navigation }) => {
   // Obtenha o primeiro item da lista de corridas futuras
@@ -25,7 +26,6 @@ const NextRaceSection = ({ navigation }) => {
             <HomeUpRaceText>{nextRace.date}</HomeUpRaceText>
             <HomeUpRaceText>{nextRace.circuit}</HomeUpRaceText>
           </HomeUpRaceTextContainer>
-          <HomeUpViewMoreText>View More</HomeUpViewMoreText >
         </HomeUpRaceContainer>
       ) : (
         <Text>No upcoming race data available.</Text>

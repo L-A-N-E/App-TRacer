@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Text, FlatList, TouchableOpacity, View } from 'react-native';
+import { Text, FlatList } from 'react-native';
 // Importando dados
 import sampleFormulaETeamsData from '../../constant/teamsData.jsx'; 
 // Importando Estilos
-import { HomePilots, HomePilotsText, HomeUpRaceContainer, HomeUpTextContainer, HomeUpText, HomeUpViewMoreText, HomeUpRaces, HomeTeamTextContainer, HomeTeam } from '../../styles/HomeStyles.jsx';
+import { HomePilotsText, HomeUpRaceContainer, HomeUpTextContainer, HomeUpText, HomeUpRaces, HomeTeamTextContainer, HomeTeam } from '../../styles/HomeStyles.jsx';
 
 const TeamPointsSection = ({ teamName, navigation }) => {
   const [teamPoints, setTeamPoints] = useState([]);
@@ -27,9 +27,6 @@ const TeamPointsSection = ({ teamName, navigation }) => {
     <HomeUpRaces>
       <HomeUpTextContainer>
         <HomeUpText>Team</HomeUpText>
-        <TouchableOpacity onPress={() => navigation.navigate('Races')}>
-          <HomeUpText>See All</HomeUpText>
-        </TouchableOpacity>
       </HomeUpTextContainer>
       {loading ? (
         <Text>Loading team points...</Text>
@@ -44,7 +41,6 @@ const TeamPointsSection = ({ teamName, navigation }) => {
                     <HomePilotsText>{item.team}</HomePilotsText>
                     <HomePilotsText>Total Points: {item.total_points}</HomePilotsText>
                 </HomeTeamTextContainer>
-                <HomeUpViewMoreText>View More</HomeUpViewMoreText>
               </HomeTeam>
             )}
           />

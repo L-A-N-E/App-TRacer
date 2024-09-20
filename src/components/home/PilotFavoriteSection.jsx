@@ -1,10 +1,10 @@
 // Importando dependências
 import React, { useEffect, useState } from 'react';
-import { Text, FlatList, TouchableOpacity, View, Dimensions, StyleSheet } from 'react-native';
+import { Text, FlatList } from 'react-native';
 // Importando dados
 import sampleFormulaETeamsData from '../../constant/teamsData.jsx'; 
 // Importando Estilos
-import { HomePilots, HomePilotsText, HomePilotsTextContainer, HomeTeamTextContainer, HomeUpRaceContainer, HomeUpRaces, HomeUpText, HomeUpTextContainer, HomeUpViewMoreText } from '../../styles/HomeStyles.jsx';
+import { HomePilots, HomePilotsText, HomePilotsTextContainer, HomeTeamTextContainer, HomeUpRaceContainer, HomeUpRaces, HomeUpText, HomeUpTextContainer } from '../../styles/HomeStyles.jsx';
 
 const PilotPointsSection = ({ teamName, navigation }) => {
   const [teamPoints, setTeamPoints] = useState(null);
@@ -28,9 +28,6 @@ const PilotPointsSection = ({ teamName, navigation }) => {
     <HomeUpRaces>
       <HomeUpTextContainer>
         <HomeUpText>Pilots</HomeUpText>
-        <TouchableOpacity onPress={() => navigation.navigate('Races')}>
-          <HomeUpText>See All</HomeUpText>
-        </TouchableOpacity>
       </HomeUpTextContainer>
       {loading ? (
         <Text>Loading team points...</Text>
@@ -48,7 +45,6 @@ const PilotPointsSection = ({ teamName, navigation }) => {
                     <HomePilotsText>Points {item.points_last_season}</HomePilotsText>
                   </HomePilotsTextContainer>
                 </HomeTeamTextContainer>
-                <HomeUpViewMoreText>View More</HomeUpViewMoreText>
               </HomePilots>
             )}
             horizontal

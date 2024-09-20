@@ -169,17 +169,6 @@ export const HomeUpRaceText = styled.Text`
     color: ${Colors.ft_color};
     font-size: 12px;
 `
-
-export const HomeUpViewMoreText = styled.Text`
-    font-family: 'Montserrat-ExtraBold';
-    text-transform: uppercase;
-    color: ${Colors.ft_color};
-    background-color: ${Colors.fill_color1};
-    font-size: 12px;
-    border: solid 1px ${Colors.ft_color};
-    padding: 4px 7px;
-    border-radius: 5px;
-`
 // Estilos para os Pilotos
 
 export const HomePilots = styled.View`
