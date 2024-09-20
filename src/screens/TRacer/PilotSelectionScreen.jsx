@@ -19,30 +19,32 @@ const PilotSelectionScreen = ({ navigation, route }) => {
   // Inicializa o estado com as equipes disponíveis
   const [availableTeams] = useState(sampleFormulaETeamsData.teams);
 
-  // Função para selecionar um piloto
   const handleSelectPilot = async (pilot) => {
-    // Verifica se o usuário tem pontos suficientes e se ainda não selecionou dois pilotos
     if (TRpoints >= pilot.cust_tr && pilots.length < 2) {
-      // Atualiza a lista de pilotos selecionados
-      const updatedPilots = [...pilots, { name: pilot.name, points: pilot.current_RacesPoints }];
-      const userRef = doc(db, 'users', user.uid); // Referência ao documento do usuário no Firestore
-
+      // Cria a nova lista de pilotos selecionados
+      const updatedPilots = [...pilots, { name: pilot.name, points: pilot.current_racesPoints }];
+      
+      const userRef = doc(db, 'users', user.uid);
+  
+      // Verifique a estrutura dos dados que você está atualizando
+      const dataToUpdate = {
+        selectedPilots: updatedPilots,
+        tr_points: TRpoints - pilot.cust_tr,
+      };
+  
       try {
-        // Atualiza o documento do usuário com os pilotos selecionados e os pontos restantes
-        await updateDoc(userRef, {
-          selectedPilots: updatedPilots,
-          tr_points: TRpoints - pilot.cust_tr
-        });
-        setPilots(updatedPilots); // Atualiza o estado com os pilotos selecionados
-        setTRPoints(TRpoints - pilot.cust_tr); // Atualiza os pontos restantes
-        navigation.goBack(); // Volta para a tela anterior
+        await updateDoc(userRef, dataToUpdate);
+        setPilots(updatedPilots);
+        setTRPoints(TRpoints - pilot.cust_tr);
+        navigation.goBack();
       } catch (error) {
-        console.error('Error updating document: ', error); // Log de erro caso a atualização falhe
+        console.error('Error updating document: ', error);
       }
     } else {
-      alert('Not enough points or already selected two pilots.'); // Mensagem de alerta se não puder selecionar
+      alert('Not enough points or already selected two pilots.');
     }
   };
+  
 
   // Função para confirmar a seleção de um piloto
   const handleConfirmPilotSelection = (pilot) => {
