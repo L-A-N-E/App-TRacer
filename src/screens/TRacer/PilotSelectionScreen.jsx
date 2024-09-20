@@ -49,7 +49,7 @@ const PilotSelectionScreen = ({ navigation, route }) => {
 
   // Função para renderizar cada item piloto
   const renderPilotItem = ({ item: pilot }) => {
-    return <PilotBuy pilot={pilot} />
+    return <PilotBuy pilot={pilot} handleConfirmPilotSelection={handleConfirmPilotSelection}/>
   };
 
   // Função para renderizar a lista principal

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
 
-const PilotBuy = ({pilot}) => {
+const PilotBuy = ({pilot, handleConfirmPilotSelection}) => {
   return (
     <View>
         <Image source={pilot.imagePilot} />
