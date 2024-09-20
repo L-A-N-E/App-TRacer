@@ -47,36 +47,26 @@ const PilotSelectionScreen = ({ navigation, route }) => {
   };
 
   // Função para renderizar cada item piloto
-  const renderPilotItem = (pilot) => (
-    <View>
-      <Text>{pilot.name} - Cost: {pilot.cust_tr} Points</Text> 
-      <Button title="Buy" onPress={() => handleConfirmPilotSelection(pilot)} /> 
-    </View>
-  );
-
-  // Função para renderizar cada item de equipe
-  const renderTeamItem = ({ item }) => {
-    const availablePilots = getAvailablePilots(item.drivers, pilots); 
+  const renderPilotItem = ({ item: pilot }) => {
     return (
       <View>
-        <FlatList
-          data={availablePilots} // Dados filtrados
-          keyExtractor={driver => driver.name} // Extrai chave única de cada piloto
-          renderItem={({ item: driver }) => renderPilotItem(driver)} // Renderiza cada piloto
-        />
+        <Text>{pilot.name} - Cost: {pilot.cust_tr} Points</Text>
+        <Button title="Buy" onPress={() => handleConfirmPilotSelection(pilot)} />
       </View>
     );
   };
 
+  // Função para renderizar a lista principal
   return (
     <View>
       <View>
-        <Text>TOTAL: {TRpoints}</Text> 
+        <Text>TOTAL: </Text>
+        <Text>TR$ {TRpoints}</Text>
       </View>
       <FlatList
-        data={availableTeams} // Dados das equipes disponíveis
-        keyExtractor={item => item.id} // Extrai chave única de cada equipe
-        renderItem={renderTeamItem} // Renderiza cada equipe
+        data={availableTeams.flatMap(team => getAvailablePilots(team.drivers, pilots))} // Filtra todos os pilotos disponíveis
+        keyExtractor={pilot => pilot.name} // Extrai chave única de cada piloto
+        renderItem={renderPilotItem} // Renderiza cada piloto
       />
     </View>
   );
