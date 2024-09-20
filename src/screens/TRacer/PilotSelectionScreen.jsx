@@ -8,6 +8,7 @@ import sampleFormulaETeamsData from '../../constant/teamsData.jsx';
 import { db } from '../../firebase/firebaseConfig.jsx';  
 // Importando funções
 import { getAvailablePilots, confirmPilotSelection } from '../../utils/pilotUtils.js'; 
+import PilotBuy from '../../components/TRacer/PilotBuy.jsx';
 
 const PilotSelectionScreen = ({ navigation, route }) => {
   // Desestrutura os parâmetros da rota
@@ -48,12 +49,7 @@ const PilotSelectionScreen = ({ navigation, route }) => {
 
   // Função para renderizar cada item piloto
   const renderPilotItem = ({ item: pilot }) => {
-    return (
-      <View>
-        <Text>{pilot.name} - Cost: {pilot.cust_tr} Points</Text>
-        <Button title="Buy" onPress={() => handleConfirmPilotSelection(pilot)} />
-      </View>
-    );
+    return <PilotBuy pilot={pilot} />
   };
 
   // Função para renderizar a lista principal
