@@ -1,9 +1,9 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 // Importando componente
-import AuthInputs from '../components/AuthInputs';
+import AuthInputs from '../../components/AuthInputs';
 // Importando estilos
-import { AuthBackground, AuthButton, AuthLinkText, AuthView, AuthTitle, AuthBold, AuthButtonText, AuthInputsView } from '../styles/AuthStyles'
+import { AuthBackground, AuthButton, AuthLinkText, AuthView, AuthTitle, AuthBold, AuthButtonText, AuthInputsView } from '../../styles/AuthStyles'
 
 const LoginScreen = ({ email, setEmail, password, setPassword, isLogin, setIsLogin, handleAuthentication, navigation }) => {
 
@@ -12,7 +12,7 @@ const LoginScreen = ({ email, setEmail, password, setPassword, isLogin, setIsLog
   };
 
   return (
-    <AuthBackground source={require('../assets/images/background/background.png')}>
+    <AuthBackground source={require('../../assets/images/background/background.png')}>
       <AuthView>
         <AuthTitle>Login <AuthBold>NOW</AuthBold></AuthTitle>
         <AuthInputsView>

@@ -3,9 +3,9 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import AntDesign from '@expo/vector-icons/AntDesign';
 // Importando as telas do aplicativo
-import TRacerScreen from '../screens/TRacerScreen'; 
-import PilotSelectionScreen from '../screens/PilotSelectionScreen'; 
-import PilotDetailScreen from '../screens/PilotsDetailsScreen';
+import TRacerScreen from '../screens/TRacer/TRacerScreen'; 
+import PilotSelectionScreen from '../screens/TRacer/PilotSelectionScreen'; 
+import PilotDetailScreen from '../screens/TRacer/PilotsDetailsScreen';
 // Importando cores definidas em um arquivo de constantes
 import Colors from '../constant/Colors';
 

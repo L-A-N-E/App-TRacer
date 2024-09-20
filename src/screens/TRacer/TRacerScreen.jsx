@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { db, auth } from '../firebase/firebaseConfig'; 
-import LoadingScreen from './LoadingScreen';
+import { db, auth } from '../../firebase/firebaseConfig'; 
+import LoadingScreen from '../LoadingScreen';
 import { getDoc, doc } from 'firebase/firestore';
 import { LogBox } from 'react-native';
 

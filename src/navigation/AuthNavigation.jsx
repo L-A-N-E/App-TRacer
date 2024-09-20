@@ -2,7 +2,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 // Importando telas
-import LoginScreen from '../screens/LoginScreen';
+import LoginScreen from '../screens/AuthScreens/LoginScreen';
 import AppNavigator from './AppNavigation';
 
 const Stack = createStackNavigator();

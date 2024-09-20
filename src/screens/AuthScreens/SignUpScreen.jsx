@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, Alert, TouchableOpacity } from 'react-native';
 // Importando a função
-import { handleSignUp } from '../utils/authUtils';
-import AuthInputs from '../components/AuthInputs';
+import { handleSignUp } from '../../utils/authUtils';
+import AuthInputs from '../../components/AuthInputs';
 // Importando Estilos
-import { AuthBackground, AuthView, AuthButton, AuthLinkText, AuthTitle, AuthBold, AuthButtonText, AuthInputsView } from '../styles/AuthStyles'
+import { AuthBackground, AuthView, AuthButton, AuthLinkText, AuthTitle, AuthBold, AuthButtonText, AuthInputsView } from '../../styles/AuthStyles'
 
 const SignUpScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -21,7 +21,7 @@ const SignUpScreen = ({ navigation }) => {
   };
 
   return (
-    <AuthBackground source={require('../assets/images/background/background.png')}>
+    <AuthBackground source={require('../../assets/images/background/background.png')}>
       <AuthView>
       <AuthTitle>Create <AuthBold>NOW</AuthBold></AuthTitle>
         <AuthInputsView>

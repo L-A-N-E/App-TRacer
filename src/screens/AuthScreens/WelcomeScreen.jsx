@@ -1,11 +1,11 @@
 // Importando dependencias
 import React from 'react';
 // Importando os Estilos
-import { AuthBackground, AuthButton, AuthButtonText, AuthView, AuthTitle } from '../styles/AuthStyles'
+import { AuthBackground, AuthButton, AuthButtonText, AuthView, AuthTitle } from '../../styles/AuthStyles'
 
 const WelcomeScreen = ({ navigation }) => {
   return (
-    <AuthBackground source={require('../assets/images/background/background.png')}>
+    <AuthBackground source={require('../../assets/images/background/background.png')}>
       <AuthView>
         <AuthTitle>Wellcome!</AuthTitle>
         <AuthButton onPress={() => navigation.navigate('LoginScreen')}>

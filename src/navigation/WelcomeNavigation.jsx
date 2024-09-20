@@ -4,9 +4,9 @@ import { Alert } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { onAuthStateChanged } from 'firebase/auth';
 // Importando as telas
-import WelcomeScreen from '../screens/WelcomeScreen';
+import WelcomeScreen from '../screens/AuthScreens/WelcomeScreen';
 import AuthNavigation from './AuthNavigation';
-import SignUpScreen from '../screens/SignUpScreen';
+import SignUpScreen from '../screens/AuthScreens/SignUpScreen';
 // Chamando a configuração do banco de dados
 import { auth } from '../firebase/firebaseConfig';
 // Chamando a função

@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import { View, Text, FlatList, Alert, Button } from 'react-native'; 
 import { doc, updateDoc } from 'firebase/firestore';
 // Importando dados
-import sampleFormulaETeamsData from '../constant/teamsData.jsx'; 
+import sampleFormulaETeamsData from '../../constant/teamsData.jsx'; 
 // Importando db
-import { db } from '../firebase/firebaseConfig.jsx';  
+import { db } from '../../firebase/firebaseConfig.jsx';  
 // Importando funções
-import { getAvailablePilots, confirmPilotSelection } from '../utils/pilotUtils.js'; 
+import { getAvailablePilots, confirmPilotSelection } from '../../utils/pilotUtils.js'; 
 
 const PilotSelectionScreen = ({ navigation, route }) => {
   // Desestrutura os parâmetros da rota
