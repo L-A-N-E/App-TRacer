@@ -1,5 +1,6 @@
+// Importando dependencias
 import React from 'react'
-import { Image, Text, TouchableOpacity, View } from 'react-native'
+// Importando estilos
 import { PilotButton, PilotBuyContainer, PilotButtonText, PilotContent, PilotCust, PilotBold, PilotImage, PilotName, PilotPoints, PilotPointsContainer, PilotPointsText, PilotPointsTitle, PilotsContainer } from '../../styles/PilotsStyles'
 
 const PilotBuy = ({pilot, handleConfirmPilotSelection}) => {

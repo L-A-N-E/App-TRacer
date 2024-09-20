@@ -1,7 +1,9 @@
+// Importando dependencias
 import styled from "styled-components/native";
-import Colors from "../constant/Colors";
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from "react-native-safe-area-context";
+// Importando cores
+import Colors from "../constant/Colors";
 
 export const RacesContainer = styled.View`
   flex: 1;

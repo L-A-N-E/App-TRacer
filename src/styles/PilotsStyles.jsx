@@ -1,10 +1,35 @@
+// Importando dependencias
 import styled from 'styled-components';
-import Colors from '../constant/Colors';
 import { Dimensions } from 'react-native';
+// Importando cores
+import Colors from '../constant/Colors';
 
 // Obter largura da tela
 const { width } = Dimensions.get('window');
 
+// Estilos para a seleção de pilotos
+export const SelectionContainer = styled.View`
+    flex: 1;
+    gap: 10px;
+`
+
+export const SelectionContainerText = styled.View`
+    justify-content: center;
+    padding: 10px 20px;
+`
+
+export const SelectionText = styled.Text`
+    font-family: 'Montserrat-Regular';
+    text-transform: uppercase;
+    font-size: 12px;
+`
+export const SelectionBold = styled.Text`
+    font-family: 'Montserrat-ExtraBold';
+    text-transform: uppercase;
+    font-size: 15px;
+`
+
+// Estilos para os pilotos
 export const PilotsContainer =  styled.View`
     background-color: ${Colors.red_color};
     flex-direction: row;

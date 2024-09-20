@@ -1,3 +1,4 @@
+// Importando dependencias
 import React, { useEffect, useState } from 'react';
 import { FlatList, View } from 'react-native';
 // Importando os dados

@@ -8,7 +8,10 @@ import sampleFormulaETeamsData from '../../constant/teamsData.jsx';
 import { db } from '../../firebase/firebaseConfig.jsx';  
 // Importando funções
 import { getAvailablePilots, confirmPilotSelection } from '../../utils/pilotUtils.js'; 
+// Importando componentes
 import PilotBuy from '../../components/TRacer/PilotBuy.jsx';
+// Importando estilos
+import { SelectionBold, SelectionContainer, SelectionContainerText, SelectionText } from '../../styles/PilotsStyles.jsx';
 
 const PilotSelectionScreen = ({ navigation, route }) => {
   // Desestrutura os parâmetros da rota
@@ -54,11 +57,11 @@ const PilotSelectionScreen = ({ navigation, route }) => {
 
   // Função para renderizar a lista principal
   return (
-    <View>
-      <View>
-        <Text>TOTAL: </Text>
-        <Text>TR$ {TRpoints}</Text>
-      </View>
+    <SelectionContainer>
+      <SelectionContainerText>
+        <SelectionText>TOTAL</SelectionText>
+        <SelectionText>TR$ <SelectionBold>{TRpoints}</SelectionBold></SelectionText>
+      </SelectionContainerText>
       <FlatList
         data={availableTeams.flatMap(team => getAvailablePilots(team.drivers, pilots))} // Filtra todos os pilotos disponíveis
         keyExtractor={pilot => pilot.name} // Extrai chave única de cada piloto
@@ -69,7 +72,7 @@ const PilotSelectionScreen = ({ navigation, route }) => {
           gap: 20,
         }}
       />
-    </View>
+    </SelectionContainer>
   );
 };
 
