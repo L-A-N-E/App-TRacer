@@ -97,7 +97,7 @@ export const HomeContainerText = styled.View`
 // Estilos para ranking
 
 export const HomeRankingContainer = styled(LinearGradient).attrs({
-    colors: [ Colors.red_color2, Colors.red_color], 
+    colors: [ Colors.red_color, Colors.red_color2], 
     start: { x: 0, y: 2 },
     end: { x: 1.2, y: 0 },
     locations: [0.2,1],
@@ -139,7 +139,7 @@ export const HomeUpText = styled.Text`
 `
 
 export const HomeUpRaceContainer = styled(LinearGradient).attrs({
-    colors: [ '#D9072D', '#D9072D'], 
+    colors: [ Colors.red_color, Colors.red_color2], 
     start: { x: 0, y: 2 },
     end: { x: 1.2, y: 0 },
     locations: [0.2,1],
