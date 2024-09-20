@@ -5,6 +5,9 @@ import { db, auth } from '../../firebase/firebaseConfig';
 import LoadingScreen from '../LoadingScreen';
 import { getDoc, doc } from 'firebase/firestore';
 import { LogBox } from 'react-native';
+import SelectTwoPilot from '../../components/TRacer/SelectTwoPilot';
+import SelectOnePilot from '../../components/TRacer/SelectOnePilot';
+import SelectedPilots from '../../components/TRacer/SelectedPilots';
 
 const TRacerScreen = ({ navigation }) => {
   const [user, setUser] = useState(null);
@@ -68,46 +71,16 @@ const TRacerScreen = ({ navigation }) => {
             <View>
               {pilots.length < 2 ? (
                 <>
-                  {pilots.length === 0 ? (
-                    <>
-                      <Text>Select Your Pilots</Text>
-                      <TouchableOpacity onPress={navigateToPilotSelection}>
-                        <Text>Add Pilot</Text>
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={navigateToPilotSelection}>
-                        <Text>Add Pilot</Text>
-                      </TouchableOpacity>
-                    </>
-                  ) : (
-                    <>
-                      <Text>Select Your Pilot</Text>
-                      {pilots.map((pilot, index) => (
-                        <View key={index}>
-                          <Text>{pilot.name} - Points: {pilot.points}</Text>
-                          <TouchableOpacity onPress={() => navigateToPilotDetail(pilot)}>
-                            <Text>See Details</Text>
-                          </TouchableOpacity>
-                        </View>
-                      ))}
-                      <TouchableOpacity onPress={navigateToPilotSelection}>
-                        <Text>Add Pilot</Text>
-                      </TouchableOpacity>
-                    </>
-                  )}
+                  {pilots.length === 0 ? 
+                    // Para selecionar dois pilotos 
+                    (<SelectTwoPilot navigateToPilotSelection={navigateToPilotSelection} />) : 
+                    // Para selecionar um piloto
+                    (<SelectOnePilot navigateToPilotSelection={navigateToPilotSelection} navigateToPilotDetail={navigateToPilotDetail} pilots={pilots} />)
+                  }
                 </>
-              ) : (
-                <>
-                  <Text>Your Pilots</Text>
-                  {pilots.map((pilot, index) => (
-                    <View key={index} >
-                      <Text>{pilot.name} - Points: {pilot.points}</Text>
-                      <TouchableOpacity onPress={() => navigateToPilotDetail(pilot)}>
-                        <Text>See Details</Text>
-                      </TouchableOpacity>
-                    </View>
-                  ))}
-                </>
-              )}
+              ) : 
+              // Selecionado os dois pilotos
+              (<SelectedPilots navigateToPilotDetail={navigateToPilotDetail} pilots={pilots} />)} 
             </View>
 
             <Text>Total Points: {totalPoints}</Text>
