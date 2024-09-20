@@ -1,19 +1,29 @@
+// Importando dependencias
 import React from 'react'
-import { Text, TouchableOpacity, View } from 'react-native'
+// Importando estilos
+import { SectionButton, SectionButtonText, SectionContent, SectionContentContainer, SectionSelect, SectionTextBold, SectionTitle, TotalText, TotalTextBold } from '../../styles/TRacerStyles'
+import { PilotButtonContainer, PilotText, PilotBold, PilotImage } from '../../styles/PilotsStyles'
 
-const SelectedPilots = ({ navigateToPilotDetail, pilots}) => {
+const SelectedPilots = ({ navigateToPilotDetail, pilots, totalPoints }) => {
   return (
-    <View>
-        <Text>Your Pilots</Text>
+    <SectionSelect>
+        <SectionTitle>Your Pilots</SectionTitle>
         {pilots.map((pilot, index) => (
-            <View key={index} >
-                <Text>{pilot.name} - Points: {pilot.points}</Text>
-                <TouchableOpacity onPress={() => navigateToPilotDetail(pilot)}>
-                    <Text>See Details</Text>
-                </TouchableOpacity>
-            </View>
+            <SectionContent key={index}>
+            <PilotImage source={pilot.imagePilot} />
+            <SectionContentContainer>
+                <SectionTextBold>{pilot.name}</SectionTextBold>
+                <PilotButtonContainer>
+                    <PilotText>RP <PilotBold>{pilot.points}</PilotBold></PilotText>
+                    <SectionButton onPress={() => navigateToPilotDetail(pilot)}>
+                        <SectionButtonText>See Details</SectionButtonText>
+                    </SectionButton>
+                </PilotButtonContainer>
+            </SectionContentContainer>
+        </SectionContent>
         ))}
-    </View>
+        <TotalText>Total RP: <TotalTextBold>{totalPoints}</TotalTextBold></TotalText>
+    </SectionSelect>
   )
 }
 

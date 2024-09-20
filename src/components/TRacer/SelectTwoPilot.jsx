@@ -1,17 +1,29 @@
+// Importando dependencias
 import React from 'react'
-import { Text, TouchableOpacity, View } from 'react-native'
+import { AntDesign } from '@expo/vector-icons'
+// Importando estilos
+import { SectionAdd, SectionSelect, SectionTitle } from '../../styles/TRacerStyles'
+
 
 const SelectTwoPilot = ({navigateToPilotSelection}) => {
   return (
-    <View>
-        <Text>Select Your Pilots</Text>
-        <TouchableOpacity onPress={navigateToPilotSelection}>
-            <Text>Add Pilot</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={navigateToPilotSelection}>
-            <Text>Add Pilot</Text>
-        </TouchableOpacity>
-    </View>
+    <SectionSelect>
+      <SectionTitle>Select Your Pilots</SectionTitle>
+        <SectionAdd onPress={navigateToPilotSelection}>
+            <AntDesign 
+                name="pluscircleo" 
+                size={24} 
+                color="white" 
+            />
+        </SectionAdd>
+        <SectionAdd onPress={navigateToPilotSelection}>
+            <AntDesign 
+                name="pluscircleo" 
+                size={24} 
+                color="white" 
+            />
+        </SectionAdd>
+    </SectionSelect>
   )
 }
 

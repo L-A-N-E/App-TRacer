@@ -1,22 +1,40 @@
+// Importando dependencias
 import React from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
+import AntDesign from '@expo/vector-icons/AntDesign';
+// Importando estilos
+import { SectionAdd, SectionButton, SectionButtonText, SectionContent, SectionContentContainer, SectionSelect, SectionTextBold, SectionTitle, TotalText, TotalTextBold } from '../../styles/TRacerStyles'
+import { PilotButtonContainer, PilotText, PilotBold, PilotImage } from '../../styles/PilotsStyles'
 
-const SelectOnePilot = ({ navigateToPilotSelection, navigateToPilotDetail, pilots}) => {
+const SelectOnePilot = ({ navigateToPilotSelection, navigateToPilotDetail, pilots, totalPoints}) => {
   return (
-    <View>
-        <Text>Select Your Pilot</Text>
+    <SectionSelect>
+        <SectionTitle >Select Your Pilot</SectionTitle>
         {pilots.map((pilot, index) => (
-            <View key={index}>
-                <Text>{pilot.name} - Points: {pilot.points}</Text>
-                <TouchableOpacity onPress={() => navigateToPilotDetail(pilot)}>
-                    <Text>See Details</Text>
-                </TouchableOpacity>
-            </View>
+            <SectionContent key={index}>
+                <PilotImage source={pilot.imagePilot} />
+                <SectionContentContainer>
+                    <SectionTextBold>{pilot.name}</SectionTextBold>
+                    <PilotButtonContainer>
+                        <PilotText>RP <PilotBold>{pilot.points}</PilotBold></PilotText>
+                        <SectionButton onPress={() => navigateToPilotDetail(pilot)}>
+                            <SectionButtonText>See Details</SectionButtonText>
+                        </SectionButton>
+                    </PilotButtonContainer>
+                </SectionContentContainer>
+            </SectionContent>
             ))}
-        <TouchableOpacity onPress={navigateToPilotSelection}>
-            <Text>Add Pilot</Text>
-        </TouchableOpacity>
-    </View>
+        <SectionAdd onPress={navigateToPilotSelection}>
+            <AntDesign 
+                name="pluscircleo" 
+                size={24} 
+                color="white" 
+            />
+        </SectionAdd>
+        <View>
+            <TotalText>Total RP: <TotalTextBold>{totalPoints}</TotalTextBold></TotalText>
+        </View>
+    </SectionSelect>
   )
 }
 

@@ -79,7 +79,7 @@ export const PilotPointsText = styled.Text`
     text-transform: uppercase;
 `
 
-export const PilotBuyContainer = styled.View`
+export const PilotButtonContainer = styled.View`
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
@@ -97,7 +97,7 @@ export const PilotButtonText = styled.Text`
     text-transform: uppercase;
 `
 
-export const PilotCust = styled.Text`
+export const PilotText = styled.Text`
     font-family: 'Montserrat-Regular';
     color: ${Colors.ft_color};
     font-size: 15px;

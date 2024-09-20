@@ -61,7 +61,7 @@ const PilotSelectionScreen = ({ navigation, route }) => {
     <SelectionContainer>
       <SelectionContainerText>
         <SelectionText>TOTAL</SelectionText>
-        <SelectionText>TR$ <SelectionBold>{TRpoints}</SelectionBold></SelectionText>
+        <SelectionText>TR$<SelectionBold>{TRpoints}</SelectionBold></SelectionText>
       </SelectionContainerText>
       <FlatList
         data={availableTeams.flatMap(team => getAvailablePilots(team.drivers, pilots))} // Filtra todos os pilotos disponíveis
