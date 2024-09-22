@@ -1,7 +1,6 @@
 // Importando dependencias
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Dimensions } from 'react-native';
 // Importando ícones
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 // Importando Telas
@@ -12,6 +11,7 @@ import TRacerNavigation from './TRacerNavigation';
 import RankingRace from '../screens/RankingRace';
 // Importando estilos
 import { NavigationTabIcon } from '../styles/NavigationStyles';
+import Colors from '../constant/Colors';
 
 const Tab = createBottomTabNavigator();
 
@@ -57,13 +57,24 @@ const AppNavigator = () => {
         },
         tabBarStyle: { height: 60 },
         headerShown: false,
+        headerStyle: {
+          backgroundColor: Colors.red_color, 
+          height: 100, 
+        },
+        headerTintColor: Colors.ft_color, 
+        headerTitleStyle: {
+          fontFamily: 'Montserrat-ExtraBold', 
+          textTransform: 'uppercase',
+          fontSize: 20, 
+        },
+        headerTitleAlign: 'center', 
       })}
       initialRouteName="Home"
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Ranking" component={RankingRace} />
+      <Tab.Screen name="Ranking" component={RankingRace} options={{ headerShown: true,}}/>
       <Tab.Screen name="TRacerNav" component={TRacerNavigation} />
-      <Tab.Screen name="Races" component={RacesScreen} />
+      <Tab.Screen name="Races" component={RacesScreen}/>
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
