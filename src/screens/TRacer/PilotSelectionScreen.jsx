@@ -1,6 +1,6 @@
 // Importando dependencias
 import React, { useState } from 'react'; 
-import { View, Text, FlatList, Alert, Button } from 'react-native'; 
+import { FlatList, Alert } from 'react-native'; 
 import { doc, updateDoc } from 'firebase/firestore';
 // Importando dados
 import sampleFormulaETeamsData from '../../constant/teamsData.jsx'; 

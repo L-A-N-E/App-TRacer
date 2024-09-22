@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, FlatList} from 'react-native';
+import { FlatList } from 'react-native';
 // Importando autenticação
 import { auth } from '../firebase/firebaseConfig.jsx';
 // Importando tela

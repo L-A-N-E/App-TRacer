@@ -1,6 +1,6 @@
 // Importando dependencias
 import React, { useEffect, useState } from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList } from 'react-native';
 // Importando os dados
 import sampleFormulaERacesData from '../constant/racesData.jsx'; 
 // Importando estilo

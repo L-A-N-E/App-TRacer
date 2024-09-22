@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Alert, TouchableOpacity } from 'react-native';
+import { Alert, TouchableOpacity } from 'react-native';
 // Importando a função
 import { handleSignUp } from '../../utils/authUtils';
 import AuthInputs from '../../components/AuthInputs';
