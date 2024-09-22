@@ -10,17 +10,17 @@ const SelectedPilots = ({ navigateToPilotDetail, pilots, totalPoints }) => {
         <SectionTitle>Your Pilots</SectionTitle>
         {pilots.map((pilot, index) => (
             <SectionContent key={index}>
-            <PilotImage source={pilot.imagePilot} />
-            <SectionContentContainer>
-                <SectionTextBold>{pilot.name}</SectionTextBold>
-                <PilotButtonContainer>
-                    <PilotText>RP <PilotBold>{pilot.points}</PilotBold></PilotText>
-                    <SectionButton onPress={() => navigateToPilotDetail(pilot)}>
-                        <SectionButtonText>See Details</SectionButtonText>
-                    </SectionButton>
-                </PilotButtonContainer>
-            </SectionContentContainer>
-        </SectionContent>
+                <PilotImage source={pilot.imagePilot} />
+                <SectionContentContainer>
+                    <SectionTextBold>{pilot.name}</SectionTextBold>
+                    <PilotButtonContainer>
+                        <PilotText>RP <PilotBold>{pilot.points}</PilotBold></PilotText>
+                        <SectionButton onPress={() => navigateToPilotDetail(pilot)}>
+                            <SectionButtonText>See Details</SectionButtonText>
+                        </SectionButton>
+                    </PilotButtonContainer>
+                </SectionContentContainer>
+            </SectionContent>
         ))}
         <TotalText>Total RP: <TotalTextBold>{totalPoints}</TotalTextBold></TotalText>
     </SectionSelect>

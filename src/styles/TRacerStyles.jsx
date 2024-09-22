@@ -1,8 +1,9 @@
 // Importando dependências
 import styled from 'styled-components';
-import Colors from '../constant/Colors';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Dimensions } from 'react-native';
+// Importando cores
+import Colors from '../constant/Colors';
 
 // Obter largura da tela
 const { width } = Dimensions.get('window');
@@ -57,6 +58,7 @@ export const SectionContent = styled.View`
 `
 export const SectionContentContainer = styled.View`
     justify-content: space-around;
+    width: ${width - 180}px;
 `
 
 export const SectionButton = styled.TouchableOpacity`
@@ -80,6 +82,7 @@ export const SectionImage = styled.Image`
 export const SectionTextBold = styled.Text`
     font-family: 'Montserrat-ExtraBold';
     text-transform: uppercase;
+    text-align: center;
     color: ${Colors.ft_color};
     font-size: 18px;
 `
