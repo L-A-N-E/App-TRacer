@@ -4,7 +4,9 @@ import { FlatList, View } from 'react-native';
 // Importando os dados
 import sampleFormulaERacesData from '../constant/racesData.jsx'; 
 // Importando estilo
-import { RacesContainer, RacesTabContainer, RacesTab, RacesTabText, RaceDate, RaceContent, RaceCountry, RaceFlag, RaceContainerView, RaceGradient, RacesSafeView } from '../styles/RacesStyles';
+import { RacesContainer, RacesTabContainer, RacesTab, RacesTabText, RacesSafeView } from '../styles/RacesStyles';
+// Importando componente
+import Races from '../components/Races/Races.jsx';
 
 const RacesScreen = () => {
   const [currentTab, setCurrentTab] = useState('upcoming');
@@ -15,22 +17,6 @@ const RacesScreen = () => {
     setRaces(sampleFormulaERacesData[currentTab]);
 
   }, [currentTab]);
-
-  const renderItem = ({ item }) => {
-
-    return (
-      <RaceGradient>
-        <RaceContainerView>
-          <RaceCountry>{item.countryCode}</RaceCountry>
-          <RaceDate>{item.date}</RaceDate>
-          <RaceContent>{item.circuit}</RaceContent>
-        </RaceContainerView>
-        <View>
-          <RaceFlag source={item.imageSource} />
-        </View>
-      </RaceGradient>
-    );
-  };
 
   return (  
     <RacesSafeView>
@@ -52,7 +38,7 @@ const RacesScreen = () => {
         <FlatList
           data={races}
           keyExtractor={(item) => item.id}
-          renderItem={renderItem}
+          renderItem={({item})=> <Races item={item}/>}
           contentContainerStyle={{
             justifyContent: 'center',
             alignItems: 'center',
