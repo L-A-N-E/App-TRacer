@@ -75,7 +75,7 @@ const AppNavigator = () => {
       <Tab.Screen name="Ranking" component={RankingRace} options={{ headerShown: true,}}/>
       <Tab.Screen name="TRacerNav" component={TRacerNavigation} />
       <Tab.Screen name="Races" component={RacesScreen}/>
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name="Profile" component={ProfileScreen} options={{ headerShown: true,}}/>
     </Tab.Navigator>
   );
 };

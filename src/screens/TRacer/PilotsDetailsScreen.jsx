@@ -1,14 +1,13 @@
+// Página sujeita a alteração
+// Importando dependencias
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+// Importando componente
+import Developing from '../../components/Developing';
 
 const PilotDetailScreen = ({ route }) => {
-  const { pilot } = route.params;
 
   return (
-    <View>
-      <Text>{pilot.name}</Text>
-      <Text>Points: {pilot.points}</Text>
-    </View>
+    <Developing/>
   );
 };
 

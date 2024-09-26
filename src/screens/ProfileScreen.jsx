@@ -1,12 +1,12 @@
+// Página sujeita a alteração
+// Importando dependencias
 import React from 'react';
-import { View, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+// Importando dependencias
+import ProfileLogOut from '../components/ProfileLogOut';
 
 const ProfileScreen = () => {
   return (
-    <SafeAreaView>
-      <Text>Perfil do Usuário</Text>
-    </SafeAreaView>
+      <ProfileLogOut/>
   );
 };
 

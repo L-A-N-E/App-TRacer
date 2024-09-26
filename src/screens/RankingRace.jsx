@@ -1,11 +1,12 @@
+// Página sujeita a alteração
+// Importando dependencias
 import React from 'react'
-import { Text, View } from 'react-native'
+// Importando componente
+import Developing from '../components/Developing'
 
 const RankingRace = () => {
   return (
-    <View>
-        <Text>Ranking</Text>
-    </View>
+    <Developing/>
   )
 }
 
