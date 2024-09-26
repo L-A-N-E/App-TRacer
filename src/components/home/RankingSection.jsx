@@ -2,13 +2,13 @@ import { TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { HomePilotsText, HomeRankingContainer, HomeUpRaces, HomeUpText, HomeUpTextContainer } from '../../styles/HomeStyles'
 
-const RankingSection = () => {
+const RankingSection = ({ navigation }) => {
 
     return (
       <HomeUpRaces>
         <HomeUpTextContainer>
             <HomeUpText>Ranking</HomeUpText>
-            <TouchableOpacity onPress={() => navigation.navigate('#')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Ranking')}>
                 <HomeUpText>See All</HomeUpText>
             </TouchableOpacity>
         </HomeUpTextContainer>

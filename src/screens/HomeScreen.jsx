@@ -84,7 +84,7 @@ const HomeScreen = ({ navigation }) => {
               {/* Seção de bem vidas */}
               <WellcomeHomeSection user={user}/>
               {/* Seção do Ranking */}
-              <RankingSection/>
+              <RankingSection navigation={navigation}/>
               {/* Seção da próxima corrida */}
               <NextRaceSection navigation={navigation}/>
               {/* Seção dos pontos pilotos */}
