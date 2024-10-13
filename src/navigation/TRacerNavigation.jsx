@@ -8,6 +8,7 @@ import PilotSelectionScreen from '../screens/TRacer/PilotSelectionScreen';
 import PilotDetailScreen from '../screens/TRacer/PilotsDetailsScreen';
 // Importando cores definidas em um arquivo de constantes
 import Colors from '../constant/Colors';
+import PilotGraphicsScreen from '../screens/TRacer/PilotGraphicsScreen';
 
 // Criando um objeto Stack para navegação
 const Stack = createStackNavigator();
@@ -53,6 +54,22 @@ const AppNavigator = () => (
         component={PilotDetailScreen} // Componente que será renderizado
         options={({ navigation }) => ({
           title: 'DETAILS', // Título da tela
+          headerLeft: () => ( // Personalizando o botão de voltar
+            <AntDesign 
+              name="left" 
+              size={24} 
+              color={Colors.ft_color} 
+              onPress={() => navigation.goBack()} 
+              style={{ marginLeft: 10 }} 
+            />
+          ),
+        })} 
+      />
+      <Stack.Screen 
+        name="Graphics" // Nome da tela
+        component={PilotGraphicsScreen} // Componente que será renderizado
+        options={({ navigation }) => ({
+          title: 'GRAPHICS', // Título da tela
           headerLeft: () => ( // Personalizando o botão de voltar
             <AntDesign 
               name="left" 
