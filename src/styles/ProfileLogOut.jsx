@@ -1,6 +1,6 @@
 // Estilo sujeito a ser removido
 import styled from 'styled-components';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native';
 // Importando Cores
 import Colors from '../constant/Colors';
 

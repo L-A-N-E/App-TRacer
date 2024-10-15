@@ -1,8 +1,7 @@
 // Importando dependencias
 import styled from 'styled-components';
 import { LinearGradient } from 'expo-linear-gradient';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Dimensions } from 'react-native';
+import { Dimensions, SafeAreaView } from 'react-native';
 // Importando constante
 import Colors from '../constant/Colors';
 
