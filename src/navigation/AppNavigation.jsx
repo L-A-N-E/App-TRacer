@@ -12,6 +12,7 @@ import RankingRace from '../screens/RankingRace';
 // Importando estilos
 import { NavigationTabIcon } from '../styles/NavigationStyles';
 import Colors from '../constant/Colors';
+import { verifyPlataform } from '../utils/plataformUtils';
 
 const Tab = createBottomTabNavigator();
 
@@ -51,11 +52,13 @@ const AppNavigator = () => {
           shadowOpacity: 0.5,
           shadowRadius: 2,
           elevation: 10,
+          height: 60,
+          paddingBottom: 10,
         },
         tabBarLabelStyle: {
           display: 'none'
         },
-        tabBarStyle: { height: 60 },
+        tabBarStyle: { height: verifyPlataform() ? 60 :  100 },
         headerShown: false,
         headerStyle: {
           backgroundColor: Colors.red_color, 
@@ -74,7 +77,7 @@ const AppNavigator = () => {
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Ranking" component={RankingRace} options={{ headerShown: true,}}/>
       <Tab.Screen name="TRacerNav" component={TRacerNavigation} />
-      <Tab.Screen name="Races" component={RacesScreen}/>
+      <Tab.Screen name="Races" component={RacesScreen} options={{ headerShown: true,}}/>
       <Tab.Screen name="Profile" component={ProfileScreen} options={{ headerShown: true,}}/>
     </Tab.Navigator>
   );

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, StatusBar } from 'react-native';
 // Importando autenticação
 import { auth } from '../firebase/firebaseConfig.jsx';
 // Importando tela
@@ -13,6 +13,7 @@ import TeamPointsSection from '../components/home/TeamFavoriteSection.jsx';
 import RankingSection from '../components/home/RankingSection.jsx';
 // Importando funções
 import { fetchFavoriteTeam, handleSetFavoriteTeam } from '../utils/homeUtils';
+import { verifyPlataform } from '../utils/plataformUtils.js';
 // Importando dados
 import sampleFormulaETeamsData from '../constant/teamsData.jsx';
 // Importando estilos
@@ -56,7 +57,7 @@ const HomeScreen = ({ navigation }) => {
   }
 
   return (
-    <HomeSafeView>
+    <HomeSafeView style={{paddingTop: verifyPlataform ? StatusBar.currentHeight : 0 }}>
       {!favoriteTeam && (
         <TeamSelectGradient>
           <TeamText>Select your favorite team</TeamText>
@@ -94,7 +95,6 @@ const HomeScreen = ({ navigation }) => {
             </HomeContainer>
           }
           data={[]}
-          renderItem={() => null} 
         />
       )}
     </HomeSafeView>
