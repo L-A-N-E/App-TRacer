@@ -18,7 +18,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/images/icons/adaptive-icon.png",
         "backgroundColor": "#D9072D"
-      }
+      },
+      "permissions": [
+        "INTERNET",
+        "ACCESS_NETWORK_STATE"
+      ]
     },
     "web": {
       "favicon": "./src/assets/images/icons/favicon.png"
