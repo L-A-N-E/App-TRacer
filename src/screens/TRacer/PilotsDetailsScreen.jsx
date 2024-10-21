@@ -26,7 +26,7 @@ const PilotDetailScreen = ({ route, navigation }) => {
     </ContainerPilotName>
     <InfoContainer>
       <DetailsContainer>
-        <ButtonDetails1>
+        <ButtonDetails1 onPress={() => navigation.navigate('RPHistory')}>
           <ButtonText>RP historic</ButtonText>
         </ButtonDetails1>
         <ButtonDetails2 onPress={() => navigation.navigate('Graphics')}>
