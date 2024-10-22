@@ -5,7 +5,6 @@ import { ProfileAvatar, ProfileBanner, ProfileButton, ProfileButtonText, Profile
 import { onAuthStateChanged, signOut } from '@react-native-firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { auth, db } from '../firebase/firebaseConfig';
-import ProfileLogOut from '../components/ProfileLogOut';
 
 const ProfileScreen = () => {
 
