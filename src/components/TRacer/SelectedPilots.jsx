@@ -1,10 +1,10 @@
-// Importando dependencias
+// Importando dependências
 import React from 'react'
 // Importando estilos
 import { SectionButton, SectionButtonText, SectionContent, SectionContentContainer, SectionSelect, SectionTextBold, SectionTitle, TotalText, TotalTextBold } from '../../styles/TRacerStyles'
 import { PilotButtonContainer, PilotText, PilotBold, PilotImage } from '../../styles/PilotsStyles'
 
-const SelectedPilots = ({ navigateToPilotDetail, pilots, totalPoints }) => {
+const SelectedPilots = ({ navigateToPilotDetail, pilots, totalPoints, deletePilot }) => {
   return (
     <SectionSelect>
         <SectionTitle>Your Pilots</SectionTitle>
@@ -16,7 +16,10 @@ const SelectedPilots = ({ navigateToPilotDetail, pilots, totalPoints }) => {
                     <PilotButtonContainer>
                         <PilotText>RP <PilotBold>{pilot.points}</PilotBold></PilotText>
                         <SectionButton onPress={() => navigateToPilotDetail(pilot)}>
-                            <SectionButtonText>See Details</SectionButtonText>
+                            <SectionButtonText>Details</SectionButtonText>
+                        </SectionButton>
+                        <SectionButton onPress={() => deletePilot(index)}> 
+                            <SectionButtonText>Delete</SectionButtonText>
                         </SectionButton>
                     </PilotButtonContainer>
                 </SectionContentContainer>
@@ -27,4 +30,4 @@ const SelectedPilots = ({ navigateToPilotDetail, pilots, totalPoints }) => {
   )
 }
 
-export default SelectedPilots
+export default SelectedPilots;

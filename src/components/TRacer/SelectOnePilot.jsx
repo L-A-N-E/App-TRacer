@@ -6,7 +6,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import { SectionAdd, SectionButton, SectionButtonText, SectionContent, SectionContentContainer, SectionSelect, SectionTextBold, SectionTitle, TotalText, TotalTextBold } from '../../styles/TRacerStyles'
 import { PilotButtonContainer, PilotText, PilotBold, PilotImage } from '../../styles/PilotsStyles'
 
-const SelectOnePilot = ({ navigateToPilotSelection, navigateToPilotDetail, pilots, totalPoints}) => {
+const SelectOnePilot = ({ navigateToPilotSelection, navigateToPilotDetail, pilots, totalPoints, deletePilot}) => {
   return (
     <SectionSelect>
         <SectionTitle >Select Your Pilot</SectionTitle>
@@ -18,7 +18,10 @@ const SelectOnePilot = ({ navigateToPilotSelection, navigateToPilotDetail, pilot
                     <PilotButtonContainer>
                         <PilotText>RP <PilotBold>{pilot.points}</PilotBold></PilotText>
                         <SectionButton onPress={() => navigateToPilotDetail(pilot)}>
-                            <SectionButtonText>See Details</SectionButtonText>
+                            <SectionButtonText>Details</SectionButtonText>
+                        </SectionButton>
+                        <SectionButton onPress={() => deletePilot(index)}> 
+                            <SectionButtonText>Delete</SectionButtonText>
                         </SectionButton>
                     </PilotButtonContainer>
                 </SectionContentContainer>
