@@ -6,6 +6,7 @@ import sampleFormulaETeamsData from '../constant/teamsData.jsx';
 // Importando componente
 import Team from '../components/Ranking/Team.jsx'; 
 import Driver from '../components/Ranking/Driver.jsx'; 
+import { RankingTab, RankingTabContainer, RankingTabText } from '../styles/RankingStyles.jsx';
 
 const RankingScreen = () => {
   const [currentTab, setCurrentTab] = useState('teams');
@@ -28,26 +29,26 @@ const RankingScreen = () => {
   return (  
     <View>
       <View>
-        <View>
-          <TouchableOpacity
+        <RankingTabContainer>
+          <RankingTab
             isActive={currentTab === 'teams'}
             onPress={() => setCurrentTab('teams')}
           >
-            <Text>Times</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
+            <RankingTabText>Teams</RankingTabText>
+          </RankingTab>
+          <RankingTab
             isActive={currentTab === 'drivers'}
             onPress={() => setCurrentTab('drivers')}
           >
-            <Text>Pilotos</Text>
-          </TouchableOpacity>
-        </View>
+            <RankingTabText>Pilots</RankingTabText>
+          </RankingTab>
+        </RankingTabContainer>
 
         {currentTab === 'teams' ? (
           <FlatList
             data={sortedTeams}
             keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item, index }) => <Team item={item} index={index + 1} />}
+            renderItem={({ item, index }) => <Team item={item} index={index} />}
             contentContainerStyle={{
               justifyContent: 'center',
               alignItems: 'center',
