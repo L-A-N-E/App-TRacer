@@ -1,16 +1,17 @@
 import { View, Text, Image } from 'react-native'
 import React from 'react'
+import { RankingGradient, RankingImage, RankingPoints, RankingPointsBold, RankingPos, RankingText, RankingTextView } from '../../styles/RankingStyles'
 
 const Team = ({ item, index }) => {
   return (
-    <View>
-    <Text>{index + 1}</Text>
-    <View>
-      <Text>{item.team}</Text>
-      <Text>Points: {item.total_points}</Text>
-    </View>
-    <Image source={item.imageSource} />
-  </View>
+    <RankingGradient>
+    <RankingPos>{index + 1}°</RankingPos>
+    <RankingTextView>
+      <RankingText>{item.team}</RankingText>
+      <RankingPoints>Points: <RankingPointsBold>{item.total_points}</RankingPointsBold></RankingPoints>
+    </RankingTextView>
+    <RankingImage source={item.imageSource} resizeMode="contain" />
+  </RankingGradient>
   )
 }
 

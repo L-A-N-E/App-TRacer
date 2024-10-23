@@ -6,7 +6,7 @@ import sampleFormulaETeamsData from '../constant/teamsData.jsx';
 // Importando componente
 import Team from '../components/Ranking/Team.jsx'; 
 import Driver from '../components/Ranking/Driver.jsx'; 
-import { RankingTab, RankingTabContainer, RankingTabText } from '../styles/RankingStyles.jsx';
+import { RankingContainer, RankingSafeView, RankingTab, RankingTabContainer, RankingTabText } from '../styles/RankingStyles.jsx';
 
 const RankingScreen = () => {
   const [currentTab, setCurrentTab] = useState('teams');
@@ -27,8 +27,8 @@ const RankingScreen = () => {
   const sortedDrivers = [...drivers].sort((a, b) => b.points_last_season - a.points_last_season);
 
   return (  
-    <View>
-      <View>
+    <RankingSafeView>
+      <RankingContainer>
         <RankingTabContainer>
           <RankingTab
             isActive={currentTab === 'teams'}
@@ -67,8 +67,8 @@ const RankingScreen = () => {
             }}
           />
         )}
-      </View>
-    </View>
+      </RankingContainer>
+    </RankingSafeView>
   );
 };
 
