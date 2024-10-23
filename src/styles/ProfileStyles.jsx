@@ -1,22 +1,29 @@
 // Estilo sujeito a ser removido
 import styled from 'styled-components';
-import { Dimensions, SafeAreaView } from 'react-native';
-// Importando Cores
-import Colors from '../constant/Colors';
+import { Dimensions } from 'react-native';
+// Importa o hook para acessar as cores
+import { useColors } from '../context/ColorsContext'; 
+
+// Custom hook para usar as cores no styled-components
+const useThemeColors = () => {
+  const colors = useColors();
+  return colors;
+};
 
 const { height } = Dimensions.get('window');
+
 const bannerHeight = height * 0.25;
 
 export const ProfileView = styled.View`
   flex: 1;
   align-items: center;
-  background-color: ${Colors.ft_color}; 
+  background-color: ${() => useThemeColors().ft_color}; 
 `;
 
 export const ProfileBanner = styled.View`
     width: 100%;
     height: 150px; 
-    background-color: ${Colors.red_color}; 
+    background-color: ${() => useThemeColors().red_color}; 
     align-items: center;
     justify-content: center;
     position: relative;
@@ -29,7 +36,7 @@ export const ProfileAvatar = styled.Image`
     position: absolute; 
     bottom: -${bannerHeight * 0.25}px; 
     border-width: 4px;
-    border-color: ${Colors.red_color}; 
+    border-color: ${() => useThemeColors().red_color}; 
 `;
 
 export const ProfileInfo = styled.View`
@@ -41,13 +48,14 @@ export const ProfileInfo = styled.View`
 export const ProfileUsername = styled.Text`
   font-family: 'Montserrat-Bold';
   font-size: 24px;
-  color: ${Colors.red_color};
+  color: ${() => useThemeColors().red_color};
   text-transform: uppercase;
 `;
 
 export const ProfileContainerInfo = styled.View`
   display: flex;
   gap: 20px;
+  width: 320px;
 `
 
 export const ProfileTextContainer = styled.View`
@@ -59,14 +67,14 @@ export const ProfileTextContainer = styled.View`
 export const ProfileTitle = styled.Text`
   font-family: 'Montserrat-Bold';
   font-size: 18px;
-  color: ${Colors.red_color};
+  color: ${() => useThemeColors().red_color};
   text-transform: uppercase;
 `;
 
 export const ProfileText = styled.Text`
   font-family: 'Montserrat-Bold';
   font-size: 16px;
-  color: ${Colors.blk};
+  color: ${() => useThemeColors().blk};
   text-transform: capitalize;
 `;
 
@@ -78,7 +86,7 @@ export const ProfileSettings = styled.View`
 `
 
 export const ProfileButton = styled.TouchableOpacity`
-  background-color: ${Colors.red_color};
+  background-color: ${() => useThemeColors().red_color};
   border-radius: 50px;
 
   padding: 10px 5px;
@@ -88,6 +96,6 @@ export const ProfileButton = styled.TouchableOpacity`
 export const ProfileButtonText = styled.Text`
   font-family: 'Montserrat-Bold';
   text-transform: uppercase;
-  color: ${Colors.ft_color};
+  color: ${() => useThemeColors().ft_color};
   letter-spacing: 10px;
 `
