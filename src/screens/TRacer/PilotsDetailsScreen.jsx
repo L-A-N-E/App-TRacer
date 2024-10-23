@@ -1,7 +1,6 @@
-// Página sujeita a alteração
 // Importando dependencias
 import React from 'react';
-import { Dimensions, Text, TouchableOpacity, View } from 'react-native';
+import { Dimensions } from 'react-native';
 // Importando estilos
 import { ImageContainer, SectionDetails, Faixa, ShowPilotImage, ContainerPilotName, DetailsPilotName, InfoContainer, ButtonContainer, ButtonDetails1, ButtonDetails2, ButtonText, TextContainer, DetailsContainer, TextUpper, TextInfo } from '../../styles/PilotsStyles';
 
@@ -18,7 +17,7 @@ const PilotDetailScreen = ({ route, navigation }) => {
     <ImageContainer>
       <Faixa style={{ left: faixaPosition }} />
       <ShowPilotImage
-        source={pilot.imagePilot} // Substitua pela URL da sua imagem
+        source={pilot.imagePilot} 
       />
     </ImageContainer>
     <ContainerPilotName>
