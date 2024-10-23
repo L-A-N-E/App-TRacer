@@ -5,9 +5,12 @@ import { useFonts } from 'expo-font';
 // Importando nav
 import WelcomeNavigation from './navigation/WelcomeNavigation';
 import LoadingScreen from './screens/LoadingScreen';
+// Importando contexto
+import { ColorsProvider } from './context/ColorsContext';
 
 // Componente principal do aplicativo
 const App = () => {
+
   // Carregar fontes 
   const [fontsLoaded] = useFonts({
     'Montserrat-ExtraBold': require('./assets/fonts/Montserrat-ExtraBold.ttf'),
@@ -19,14 +22,16 @@ const App = () => {
 
   // Exibir indicador de carregamento enquanto a fonte estão sendo carregadas
   if (!fontsLoaded) {
-    return <LoadingScreen />
+    return <LoadingScreen />;
   }
 
   return (
-    <NavigationContainer>
-      <WelcomeNavigation />
-    </NavigationContainer>
+    <ColorsProvider>
+      <NavigationContainer>
+        <WelcomeNavigation />
+      </NavigationContainer>
+    </ColorsProvider>
   );
 }
 
-export default App
+export default App;
