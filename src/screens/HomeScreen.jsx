@@ -5,7 +5,7 @@ import { auth } from '../firebase/firebaseConfig.jsx';
 // Importando tela
 import LoadingScreen from './LoadingScreen';
 // Importando componentes
-import TeamButton from '../components/home/TeamButton.jsx';
+import TeamButton from '../components/favoriteTeam/TeamButton.jsx';
 import NextRaceSection from '../components/home/NextRaceSection.jsx';
 import PilotPointsSection from '../components/home/PilotFavoriteSection.jsx';
 import WellcomeHomeSection from '../components/home/WellcomeHomeSection.jsx';
@@ -18,6 +18,7 @@ import { verifyPlataform } from '../utils/plataformUtils.js';
 import sampleFormulaETeamsData from '../constant/teamsData.jsx';
 // Importando estilos
 import { HomeSafeView, TeamSelectGradient, TeamText, HomeContainer } from '../styles/HomeStyles.jsx';
+import TeamSelect from '../components/favoriteTeam/TeamSelect.jsx';
 
 const HomeScreen = ({ navigation }) => {
   const [user, setUser] = useState(null);
@@ -44,11 +45,11 @@ const HomeScreen = ({ navigation }) => {
     };
 
     checkUser();
-  }, [navigation]);
+  }, [navigation, favoriteTeam]);
 
   const handleFavoriteTeamSelection = (team) => {
     if (user) {
-      handleSetFavoriteTeam(user.uid, team, setFavoriteTeam, navigation);
+      setFavoriteTeam(handleSetFavoriteTeam(user.uid, team));
     }
   };
 
@@ -59,24 +60,7 @@ const HomeScreen = ({ navigation }) => {
   return (
     <HomeSafeView style={{paddingTop: verifyPlataform ? StatusBar.currentHeight : 0 }}>
       {!favoriteTeam && (
-        <TeamSelectGradient>
-          <TeamText>Select your favorite team</TeamText>
-          <FlatList
-            data={sampleFormulaETeamsData.teams}
-            keyExtractor={item => item.id}
-            renderItem={({ item }) => (
-              <TeamButton
-                team={item}
-                onSelect={handleFavoriteTeamSelection}
-              />
-            )}
-            contentContainerStyle={{
-              justifyContent: 'center',
-              gap: 20
-            }}
-            showsVerticalScrollIndicator={false}
-          />
-        </TeamSelectGradient>
+        <TeamSelect handleFavoriteTeamSelection={handleFavoriteTeamSelection} />
       )}
       {favoriteTeam && (
         <FlatList
