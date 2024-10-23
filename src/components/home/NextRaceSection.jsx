@@ -22,7 +22,7 @@ const NextRaceSection = ({ navigation }) => {
       {nextRace ? (
         <HomeUpRaceContainer>
           <HomeUpRaceTextContainer>
-            <HomeUpRaceImage resizeMode={'contain'} source={nextRace.imageSource}/>
+            <HomeUpRaceImage resizeMode='contain' source={nextRace.imageSource}/>
             <HomeUpRaceText>{nextRace.date}</HomeUpRaceText>
             <HomeUpRaceText>{nextRace.circuit}</HomeUpRaceText>
           </HomeUpRaceTextContainer>
