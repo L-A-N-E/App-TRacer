@@ -11,13 +11,20 @@ import TRacerNavigation from './TRacerNavigation';
 import RankingRace from '../screens/RankingRace';
 // Importando estilos
 import { NavigationTabIcon } from '../styles/NavigationStyles';
-import Colors from '../constant/Colors';
+// Importando função
 import { verifyPlataform } from '../utils/plataformUtils';
+// Importa o hook para acessar as cores
+import { useColors } from '../context/ColorsContext'; 
 
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
-  
+  // Custom hook para usar as cores no styled-components
+  const useThemeColors = () => {
+    const colors = useColors();
+    return colors;
+  };
+
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -43,8 +50,8 @@ const AppNavigator = () => {
             </NavigationTabIcon>
           );
         },
-        tabBarActiveTintColor: '#D9072D',
-        tabBarInactiveTintColor: '#000',
+        tabBarActiveTintColor: useThemeColors().red_color,
+        tabBarInactiveTintColor: useThemeColors().fill_color2,
         tabBarStyle: {
           backgroundColor: '#EDEDED',
           shadowColor: '#000',
@@ -61,10 +68,10 @@ const AppNavigator = () => {
         tabBarStyle: { height: verifyPlataform() ? 60 :  100 },
         headerShown: false,
         headerStyle: {
-          backgroundColor: Colors.red_color, 
+          backgroundColor: useThemeColors().red_color, 
           height: 100, 
         },
-        headerTintColor: Colors.ft_color, 
+        headerTintColor: useThemeColors().ft_color, 
         headerTitleStyle: {
           fontFamily: 'Montserrat-ExtraBold', 
           textTransform: 'uppercase',
