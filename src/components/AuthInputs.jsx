@@ -14,6 +14,7 @@ const AuthInputs = ({ value, onChangeText, placeholder, isPassword }) => {
             placeholder={placeholder}
             secureTextEntry={isPassword}
             autoCapitalize='none'
+            placeholderTextColor='#fff'
         />
       </View>
     );
