@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react';
 import LoadingScreen from "../LoadingScreen";
 // Importando componentes
 import Error from '../../components/error/Error'
+// Importando estilo
+import { RPFlatListView, RPInfoContainer, RPInfoText, RPText, RPTextContainer, RPView } from '../../styles/TRacerStyles';
 
 const RPHistory = () => {
     const [data, setData] = useState([]);
@@ -48,30 +50,26 @@ const RPHistory = () => {
     }
 
     const renderItem = ({ item, index }) => (
-        // <View key={index}>
-        //     <Text>{index + 1}st Lap</Text>
-        //     <View>
-        //         <Text>{index === 0 ? "" : `${index + 1}x `}+ Pole Position</Text>
-        //         <Text>RP: {item['attrValue'][0] * 1}</Text>
-        //         <Text>{item['attrValue'][1]}</Text>
-        //     </View>
-        // </View>
-        <View key={index}>
-            <Text>1st Lap</Text>
-            <View>
-                <Text>1+ Pole Position</Text>
-                <Text>RP: 1</Text>
-                <Text>1</Text>
-            </View>
-        </View>
+        <RPView key={index}>
+            <RPTextContainer>
+                <RPText>{index + 1}st Lap</RPText>
+            </RPTextContainer>
+            <RPInfoContainer>
+                <RPInfoText>{index === 0 ? "" : `${index + 1}x `}+ Pole Position</RPInfoText>
+                <RPInfoText>RP: {item['attrValue'][0] * 1}</RPInfoText>
+                <RPInfoText>time: {item['attrValue'][1]}</RPInfoText>
+            </RPInfoContainer>
+        </RPView>
     );
 
     return (
-        <FlatList
-            data={data}
-            renderItem={renderItem}
-            keyExtractor={(item, index) => index.toString()}
-        />
+        <RPFlatListView>
+            <FlatList
+                data={data}
+                renderItem={renderItem}
+                keyExtractor={(item, index) => index.toString()}
+            />
+        </RPFlatListView>
     );
 }
 

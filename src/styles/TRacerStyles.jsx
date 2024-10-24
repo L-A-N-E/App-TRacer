@@ -43,17 +43,9 @@ export const SectionTitle = styled.Text`
 `
 
 // Estilo para o piloto
-export const SectionContainer = styled.View`
-    background-color: ${() => useThemeColors().red_color};
-    flex-direction: row;
-    height: 160px;
-    padding: 0 10px;
-    border-radius: 0 10px 0 10px;
-    width: ${width - 30}px;
-`
 
 export const SectionContent = styled.View`
-    background-color: ${() => useThemeColors().red_color};
+    background-color: ${({colors}) => colors ? colors : useThemeColors().red_color};
     flex-direction: row;
     justify-content: space-around;
     height: 160px;
@@ -113,3 +105,46 @@ export const TotalTextBold = styled.Text`
     font-family: 'Montserrat-ExtraBold';
     font-size: 24px;
 `
+// Estilo para o RP History
+
+export const RPFlatListView = styled.View`
+    flex: 1;
+    background-color: ${() => useThemeColors().ft_color};
+`
+
+export const RPView = styled.View`
+    padding: 10px;
+    justify-content: center;
+    align-items: start;
+    gap: 5px;
+    background-color: ${() => useThemeColors().ft_color};
+`
+
+export const RPText = styled.Text`
+    background-color: ${() => useThemeColors().br_color};
+    font-family: 'Montserrat-ExtraBold';
+    text-transform: uppercase;
+`
+
+export const RPTextContainer = styled.View`
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 0 10px 0 0;
+    background-color: ${() => useThemeColors().br_color};
+`;
+
+export const RPInfoContainer = styled.View`
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 0 0 0 10px;
+    background-color: ${() => useThemeColors().red_color};
+`;
+
+export const RPInfoText = styled.Text`
+    font-family: 'Montserrat-Bold';
+    color: ${() => useThemeColors().ft_color};
+    font-size: 15px;
+    text-transform: uppercase;
+`;
