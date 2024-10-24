@@ -1,6 +1,6 @@
 // Importando dependências
 import React, { useEffect, useState } from 'react';
-import { View, TouchableOpacity, Alert, Modal } from 'react-native'; 
+import { View, TouchableOpacity, Alert, Modal, Text, TextInput, Button } from 'react-native'; 
 import { onAuthStateChanged, signOut } from '@react-native-firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import * as ImagePicker from 'expo-image-picker';
@@ -13,6 +13,7 @@ import { ProfileAvatar, ProfileBanner, ProfileButton, ProfileButtonText, Profile
 import TeamSelect from '../components/favoriteTeam/TeamSelect';
 // Importando função
 import { handleSetFavoriteTeam } from '../utils/homeUtils';
+import ChangeUsername from '../components/profile/ChangeUsername';
 
 const ProfileScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -20,6 +21,8 @@ const ProfileScreen = () => {
   const [user, setUser] = useState(null);
   const [userData, setUserData] = useState({});
   const [error, setError] = useState(null);
+  const [usernameModalVisible, setUsernameModalVisible] = useState(false); 
+  const [newUsername, setNewUsername] = useState(''); 
 
   const handleLogout = async () => {
     try {
@@ -54,6 +57,32 @@ const ProfileScreen = () => {
 
   const closeModal = () => {
       setModalVisible(false);
+  };
+
+  const openUsernameModal = () => {
+    setUsernameModalVisible(true);
+  };
+
+  const closeUsernameModal = () => {
+    setUsernameModalVisible(false);
+    setNewUsername(''); 
+  };
+
+  const handleChangeUsername = async () => {
+    try {
+      const currentUser = auth.currentUser;
+      if (currentUser) {
+        const uid = currentUser.uid;
+        const docRef = doc(db, "users", uid);
+        await setDoc(docRef, { username: newUsername }, { merge: true }); 
+        setUserData((prevData) => ({ ...prevData, username: newUsername })); 
+        Alert.alert('Sucesso', 'Nome de usuário alterado com sucesso!');
+      }
+      closeUsernameModal(); // Fecha o modal após a mudança
+    } catch (error) {
+      console.error("Erro ao mudar o nome de usuário: ", error);
+      Alert.alert("Erro", "Não foi possível mudar o nome de usuário.");
+    }
   };
 
   const handleUpload = async (selectedAvatarUri) => {
@@ -137,20 +166,12 @@ const ProfileScreen = () => {
               <TouchableOpacity onPress={selectImage}>
                 <ProfileText>Change Avatar</ProfileText>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={openUsernameModal}>
                 <ProfileText>Change Username</ProfileText>
               </TouchableOpacity>
               <TouchableOpacity onPress={openModal}>
                 <ProfileText>Change Favorite Team</ProfileText>
               </TouchableOpacity>
-              <Modal
-                animationType="slide"
-                transparent={false} 
-                visible={modalVisible}
-                onRequestClose={closeModal} 
-            >
-                <TeamSelect handleFavoriteTeamSelection={handleFavoriteTeamSelection}/>
-            </Modal>
             </ProfileSettings>
           </View>
           <ProfileButton onPress={handleLogout}>
@@ -158,6 +179,24 @@ const ProfileScreen = () => {
           </ProfileButton>
         </ProfileContainerInfo>
       </ProfileInfo>
+      {/* Modal para mudar o time */}
+      <Modal
+          animationType="slide"
+          transparent={false} 
+          visible={modalVisible}
+          onRequestClose={closeModal} 
+      >
+          <TeamSelect handleFavoriteTeamSelection={handleFavoriteTeamSelection}/>
+      </Modal>
+      {/* Modal para mudar nome de usuário */}
+      <Modal
+        animationType="slide"
+        transparent={false}
+        visible={usernameModalVisible}
+        onRequestClose={closeUsernameModal}
+      >
+        <ChangeUsername newUsername={newUsername} setNewUsername={setNewUsername} handleChangeUsername={handleChangeUsername} closeUsernameModal={closeUsernameModal} />
+      </Modal>
     </ProfileView>
   );
 };
