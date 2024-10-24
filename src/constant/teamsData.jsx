@@ -139,7 +139,8 @@ const sampleFormulaETeamsData = {
       imageSource: MahindraImage,
       drivers: [
         { name: 'Edoardo Mortara', points_last_season: 19, final_ranking: 18, imagePilot: require('../assets/images/teams/pilots/Edoardo_Mortara.png'), cust_tr: 15.32, lastRacePoints: 10, racesPoints_average: 15, races: 6, current_racesPoints: 0 },
-        { name: 'Nyck de Vries', points_last_season: 22, final_ranking: 19, imagePilot: require('../assets/images/teams/pilots/Nyck_De_Vries.png'), cust_tr: 15.32, lastRacePoints: 10, racesPoints_average: 15, races: 6, current_racesPoints: 0 }
+        { name: 'Nyck de Vries', points_last_season: 22, final_ranking: 19, imagePilot: require('../assets/images/teams/pilots/Nyck_De_Vries.png'), cust_tr: 15.32, lastRacePoints: 10, racesPoints_average: 15, races: 6, current_racesPoints: 0 },
+        { name: 'Jordan King', points_last_season: 0, final_ranking: 30, imagePilot: require('../assets/images/teams/pilots/Jordan_King.png'), cust_tr: 15.32, lastRacePoints: 10, racesPoints_average: 15, races: 6, current_racesPoints: 0 }
       ],
       total_points: 41,
       red_color: '#d5042b',
@@ -151,7 +152,6 @@ const sampleFormulaETeamsData = {
       team: 'ERT',
       imageSource: ERTImage,
       drivers: [
-        { name: 'Jordan King', points_last_season: 0, final_ranking: 30, imagePilot: require('../assets/images/teams/pilots/Jordan_King.png'), cust_tr: 15.32, lastRacePoints: 10, racesPoints_average: 15, races: 6, current_racesPoints: 0 },
         { name: 'Dan Ticktum', points_last_season: 0, final_ranking: 31, imagePilot: require('../assets/images/teams/pilots/Dan_Ticktum.png'), cust_tr: 15.32, lastRacePoints: 10, racesPoints_average: 15, races: 6, current_racesPoints: 0 },
         { name: 'Sérgio Sette Câmara', points_last_season: 0, final_ranking: 32, imagePilot: require('../assets/images/teams/pilots/Sergio_Sette_Camara.png'), cust_tr: 15.32, lastRacePoints: 10, racesPoints_average: 15, races: 6, current_racesPoints: 0 }
       ],
