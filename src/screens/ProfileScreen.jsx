@@ -1,6 +1,6 @@
 // Importando dependências
 import React, { useEffect, useState } from 'react';
-import { View, TouchableOpacity, Alert } from 'react-native'; 
+import { View, TouchableOpacity, Alert, Modal } from 'react-native'; 
 import { onAuthStateChanged, signOut } from '@react-native-firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import * as ImagePicker from 'expo-image-picker';
@@ -9,10 +9,15 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { auth, db, storage } from '../firebase/firebaseConfig';
 // Importando estilos
 import { ProfileAvatar, ProfileBanner, ProfileButton, ProfileButtonText, ProfileContainerInfo, ProfileInfo, ProfileSettings, ProfileText, ProfileTextContainer, ProfileTitle, ProfileUsername, ProfileView } from '../styles/ProfileStyles';
+// Importando componentes
+import TeamSelect from '../components/favoriteTeam/TeamSelect';
+// Importando função
+import { handleSetFavoriteTeam } from '../utils/homeUtils';
 
 const ProfileScreen = () => {
-
+  const [modalVisible, setModalVisible] = useState(false);
   const [avatar, setAvatar] = useState(null);
+  const [user, setUser] = useState(null);
   const [userData, setUserData] = useState({});
   const [error, setError] = useState(null);
 
@@ -20,7 +25,6 @@ const ProfileScreen = () => {
     try {
       await signOut(auth); // Chama a função de logout do Firebase
       console.log('Usuário deslogado com sucesso!');
-      // Aqui você pode redirecionar o usuário para outra tela, se necessário
     } catch (error) {
       console.error('Erro ao deslogar:', error);
     }
@@ -29,6 +33,7 @@ const ProfileScreen = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
+        setUser(currentUser)
         const uid = currentUser.uid;
         const docRef = doc(db, "users", uid);
         const docSnap = await getDoc(docRef);
@@ -42,6 +47,14 @@ const ProfileScreen = () => {
 
     return () => unsubscribe();
   }, [auth, avatar]);
+
+  const openModal = () => {
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
+      setModalVisible(false);
+  };
 
   const handleUpload = async (selectedAvatarUri) => {
     if (!selectedAvatarUri) return;
@@ -91,6 +104,13 @@ const ProfileScreen = () => {
     }
   };
 
+  const handleFavoriteTeamSelection = (team) => {
+    if (user) {
+      handleSetFavoriteTeam(user.uid, team);
+      closeModal();
+    }
+  };
+
   return (
     <ProfileView>
       {/* Banner com avatar */}
@@ -120,9 +140,17 @@ const ProfileScreen = () => {
               <TouchableOpacity>
                 <ProfileText>Change Username</ProfileText>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={openModal}>
                 <ProfileText>Change Favorite Team</ProfileText>
               </TouchableOpacity>
+              <Modal
+                animationType="slide"
+                transparent={false} 
+                visible={modalVisible}
+                onRequestClose={closeModal} 
+            >
+                <TeamSelect handleFavoriteTeamSelection={handleFavoriteTeamSelection}/>
+            </Modal>
             </ProfileSettings>
           </View>
           <ProfileButton onPress={handleLogout}>
