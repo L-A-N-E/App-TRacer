@@ -1,8 +1,14 @@
 // Importando dependências
 import styled from 'styled-components';
 import { Dimensions, SafeAreaView } from 'react-native';
-// Importando cores
-import Colors from '../constant/Colors';
+// Importa o hook para acessar as cores
+import { useColors } from '../context/ColorsContext'; 
+
+// Custom hook para usar as cores no styled-components
+const useThemeColors = () => {
+  const colors = useColors();
+  return colors;
+};
 
 // Obter largura da tela
 const { width } = Dimensions.get('window');
@@ -38,7 +44,7 @@ export const SectionTitle = styled.Text`
 
 // Estilo para o piloto
 export const SectionContainer = styled.View`
-    background-color: ${Colors.red_color};
+    background-color: ${() => useThemeColors().red_color};
     flex-direction: row;
     height: 160px;
     padding: 0 10px;
@@ -47,7 +53,7 @@ export const SectionContainer = styled.View`
 `
 
 export const SectionContent = styled.View`
-    background-color: ${Colors.red_color};
+    background-color: ${() => useThemeColors().red_color};
     flex-direction: row;
     justify-content: space-around;
     height: 160px;
@@ -61,12 +67,12 @@ export const SectionContentContainer = styled.View`
 `
 
 export const SectionButton = styled.TouchableOpacity`
-    background-color: ${Colors.ft_color};
+    background-color: ${() => useThemeColors().ft_color};
     padding: 5px 10px;
     border-radius: 5px;
 `
 export const SectionButtonText = styled.Text`
-    color: ${Colors.red_color};
+    color: ${() => useThemeColors().red_color};
     font-family: 'Montserrat-ExtraBold';
     font-size: 12px;
     text-transform: uppercase;
@@ -82,12 +88,12 @@ export const SectionTextBold = styled.Text`
     font-family: 'Montserrat-ExtraBold';
     text-transform: uppercase;
     text-align: center;
-    color: ${Colors.ft_color};
+    color: ${() => useThemeColors().ft_color};
     font-size: 18px;
 `
 // Estilo da seção de adicionar
 export const SectionAdd = styled.TouchableOpacity`
-    background-color: ${Colors.red_color};
+    background-color: ${() => useThemeColors().red_color};
     height: 160px;
     padding: 10px;
     border-radius: 0 10px 0 10px;
@@ -100,7 +106,7 @@ export const SectionAdd = styled.TouchableOpacity`
 export const TotalText = styled.Text`
     font-family: 'Montserrat-Regular';
     font-size: 20px;
-    color: ${Colors.red_color};
+    color: ${() => useThemeColors().red_color};
 `
 
 export const TotalTextBold = styled.Text`

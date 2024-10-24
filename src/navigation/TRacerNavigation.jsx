@@ -10,19 +10,29 @@ import PilotDetailScreen from '../screens/TRacer/PilotsDetailsScreen';
 import Colors from '../constant/Colors';
 import PilotGraphicsScreen from '../screens/TRacer/PilotGraphicsScreen';
 import RPHistory from '../screens/TRacer/RPHistory';
+// Importa o hook para acessar as cores
+import { useColors } from '../context/ColorsContext'; 
 
 // Criando um objeto Stack para navegação
 const Stack = createStackNavigator();
 
-const AppNavigator = () => (
+const AppNavigator = () => {
+
+  // Custom hook para usar as cores no styled-components
+  const useThemeColors = () => {
+    const colors = useColors();
+    return colors;
+  };
+
+  return(
     <Stack.Navigator 
       initialRouteName="TRacer" // Definindo a tela inicial do navegador
       screenOptions={{
         headerStyle: {
-          backgroundColor: Colors.red_color, 
+          backgroundColor: useThemeColors().red_color, 
           height: 100, 
         },
-        headerTintColor: Colors.ft_color, 
+        headerTintColor: useThemeColors().ft_color, 
         headerTitleStyle: {
           fontFamily: 'Montserrat-ExtraBold', 
           fontSize: 20, 
@@ -99,6 +109,6 @@ const AppNavigator = () => (
         })} 
       />
     </Stack.Navigator>
-);
+)};
 
 export default AppNavigator;

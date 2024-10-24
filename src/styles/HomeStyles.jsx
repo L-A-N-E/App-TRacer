@@ -1,32 +1,32 @@
 // Importando dependencias
 import styled from 'styled-components';
-import { LinearGradient } from 'expo-linear-gradient';
 import { Dimensions, SafeAreaView } from 'react-native';
-// Importando constante
-import Colors from '../constant/Colors';
+// Importa o hook para acessar as cores
+import { useColors } from '../context/ColorsContext'; 
+
+// Custom hook para usar as cores no styled-components
+const useThemeColors = () => {
+  const colors = useColors();
+  return colors;
+};
 
 // Obter largura da tela
 const { width } = Dimensions.get('window');
 
 export const HomeSafeView = styled(SafeAreaView)`
   flex: 1;
-  background-color: ${Colors.red_color};
+  background-color: ${() => useThemeColors().red_color};
   width: 100%;
   align-items: center;
 `;
 
 // Estilos da seleção de time
 
-export const TeamSelectGradient = styled(LinearGradient).attrs({
-    colors: [ Colors.red_color2, Colors.red_color], 
-    start: { x: 0, y: 2 },
-    end: { x: 1.2, y: 0 },
-    locations: [0.5,1],
-})`
+export const TeamSelectGradient = styled.View`
     z-index: 1000;
     justify-content: center;
     align-items: center;
-    background-color: ${Colors.red_color};
+    background-color: ${() => useThemeColors().red_color};
     width: 100%;
     height: 100%;
 `;
@@ -38,7 +38,7 @@ export const TeamText = styled.Text`
     text-align: center;
     font-size: 36px;
     padding: 50px 10px;
-    color: ${Colors.ft_color};
+    color: ${() => useThemeColors().ft_color};
 `
 
 export const TeamButtons = styled.TouchableOpacity`
@@ -50,12 +50,12 @@ export const TeamButtons = styled.TouchableOpacity`
     box-sizing: border-box;
     gap:7px;
     align-items: center;
-    background-color: ${Colors.fill_color3};
+    background-color: ${() => useThemeColors().fill_color3};
 `
 export const TeamName = styled.Text`
     font-family: 'Montserrat-Bold';
     text-transform: uppercase;
-    color: ${Colors.ft_color};
+    color: ${() => useThemeColors().ft_color};
     font-size: 12px;
 `
 
@@ -68,6 +68,7 @@ export const TeamLogo = styled.Image`
 
 export const HelloWellcome = styled.ImageBackground`
     width: 100%;
+    background-color: ${() => useThemeColors().red_color};
     height: 200px;
     align-items: center;
     justify-content: flex-end;
@@ -76,7 +77,7 @@ export const HelloWellcome = styled.ImageBackground`
 export const HomeWellcomeText = styled.Text`
     font-family: 'Montserrat-ExtraBold';
     font-size: 24px;
-    color: ${Colors.ft_color};
+    color: ${() => useThemeColors().ft_color};
     opacity: 1;
 
 `
@@ -84,7 +85,7 @@ export const HomeWellcomeText = styled.Text`
 export const HomeText = styled.Text`
     font-family: 'Montserrat-Regular';
     text-transform: uppercase;
-    color: ${Colors.ft_color};
+    color: ${() => useThemeColors().ft_color};
 `
 
 export const HomeContainerText = styled.View`
@@ -95,12 +96,7 @@ export const HomeContainerText = styled.View`
 
 // Estilos para ranking
 
-export const HomeRankingContainer = styled(LinearGradient).attrs({
-    colors: [ Colors.red_color, Colors.red_color2], 
-    start: { x: 0, y: 2 },
-    end: { x: 1.2, y: 0 },
-    locations: [0.2,1],
-})`
+export const HomeRankingContainer = styled.View`
     width:100%;
     padding: 20px;
     flex-direction: row;
@@ -108,7 +104,7 @@ export const HomeRankingContainer = styled(LinearGradient).attrs({
     gap: 20px;
     justify-content: space-around;
     border-radius: 0 0 0 10px;
-
+    background-color: ${() => useThemeColors().red_color};
 `;
 
 
@@ -117,7 +113,7 @@ export const HomeRankingContainer = styled(LinearGradient).attrs({
 export const HomeContainer = styled.View`
     width: 100%;
     gap: 10px;
-    background-color: ${Colors.ft_color};
+    background-color: ${() => useThemeColors().ft_color};
 `
 
 export const HomeUpRaces = styled.View`
@@ -130,26 +126,22 @@ export const HomeUpTextContainer = styled.View`
     justify-content: space-between;
     padding: 10px;
     border-radius: 0 10px 0 0;
-    background-color: ${Colors.br_color};
+    background-color: ${() => useThemeColors().br_color};
 `;
+
 export const HomeUpText = styled.Text`
     font-family: 'Montserrat-ExtraBold';
     text-transform: uppercase;
 `
 
-export const HomeUpRaceContainer = styled(LinearGradient).attrs({
-    colors: [ Colors.red_color, Colors.red_color2], 
-    start: { x: 0, y: 2 },
-    end: { x: 1.2, y: 0 },
-    locations: [0.2,1],
-})`
+export const HomeUpRaceContainer = styled.View`
     width:100%;
     padding: 20px;
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-between;
     border-radius: 0 0 0 10px;
-
+    background-color: ${() => useThemeColors().red_color};
 `;
 
 export const HomeUpRaceTextContainer = styled.View`
@@ -165,7 +157,7 @@ export const HomeUpRaceImage = styled.Image`
 export const HomeUpRaceText = styled.Text`
     font-family: 'Montserrat-Regular';
     text-transform: uppercase;
-    color: ${Colors.ft_color};
+    color: ${() => useThemeColors().ft_color};
     font-size: 12px;
 `
 // Estilos para os Pilotos
@@ -185,7 +177,7 @@ export const HomePilotsTextContainer = styled.View`
 `
 export const HomePilotsText = styled.Text`
     font-family: 'Montserrat-Regular';
-    color: ${Colors.ft_color};
+    color: ${() => useThemeColors().ft_color};
     text-transform: uppercase;
 `
 

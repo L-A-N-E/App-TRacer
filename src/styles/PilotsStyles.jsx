@@ -1,8 +1,14 @@
 // Importando dependencias
 import styled from 'styled-components';
 import { Dimensions, TouchableOpacity } from 'react-native';
-// Importando cores
-import Colors from '../constant/Colors';
+// Importa o hook para acessar as cores
+import { useColors } from '../context/ColorsContext'; 
+
+// Custom hook para usar as cores no styled-components
+const useThemeColors = () => {
+  const colors = useColors();
+  return colors;
+};
 
 // Obter largura da tela
 const { width } = Dimensions.get('window');
@@ -31,7 +37,7 @@ export const SelectionBold = styled.Text`
 
 // Estilos para os pilotos
 export const PilotsContainer =  styled.View`
-    background-color: ${Colors.red_color};
+    background-color: ${() => useThemeColors().red_color};
     flex-direction: row;
     height: 160px;
     padding: 0 10px;
@@ -55,7 +61,7 @@ export const PilotContent = styled.View`
 export const PilotName = styled.Text`
     font-family: 'Montserrat-ExtraBold';
     text-transform: uppercase;
-    color: ${Colors.ft_color};
+    color: ${() => useThemeColors().ft_color};
 `
 export const PilotPoints = styled.View`
     flex-direction: row;
@@ -69,13 +75,13 @@ export const PilotPointsContainer = styled.View`
 
 export const PilotPointsTitle = styled.Text`
     font-family: 'Montserrat-Regular';
-    color: ${Colors.ft_color};
+    color: ${() => useThemeColors().ft_color};
     text-transform: uppercase;
 `
 
 export const PilotPointsText = styled.Text`
     font-family: 'Montserrat-Bold';
-    color: ${Colors.ft_color};
+    color: ${() => useThemeColors().ft_color};
     text-transform: uppercase;
 `
 
@@ -86,26 +92,26 @@ export const PilotButtonContainer = styled.View`
 `
 
 export const PilotButton = styled.TouchableOpacity`
-    background-color: ${Colors.ft_color};
+    background-color: ${() => useThemeColors().ft_color};
     padding: 5px 25px;
     border-radius: 5px;
 `
 
 export const PilotButtonText = styled.Text`
-    color: ${Colors.red_color};
+    color: ${() => useThemeColors().red_color};
     font-family: 'Montserrat-ExtraBold';
     text-transform: uppercase;
 `
 
 export const PilotText = styled.Text`
     font-family: 'Montserrat-Regular';
-    color: ${Colors.ft_color};
+    color: ${() => useThemeColors().ft_color};
     font-size: 15px;
 `
 
 export const PilotBold = styled.Text`
     font-family: 'Montserrat-ExtraBold';
-    color: ${Colors.ft_color};
+    color: ${() => useThemeColors().ft_color};
     font-size: 20px;
 `
 
@@ -120,7 +126,7 @@ export const ImageContainer = styled.View`
   align-items: center;
   height: 62%; 
   position: relative;
-  background-color: ${Colors.br_color};
+  background-color: ${() => useThemeColors().br_color};
 `;
 
 export const Faixa = styled.View`
@@ -128,7 +134,7 @@ export const Faixa = styled.View`
   top: 0;
   width: 100px; 
   height: 100%; 
-  background-color: ${Colors.red_color}; 
+  background-color: ${() => useThemeColors().red_color}; 
   z-index: 0; 
 `;
 
@@ -139,7 +145,7 @@ export const ShowPilotImage = styled.Image`
 `;
 
 export const ContainerPilotName = styled.View`
-    background-color: ${Colors.br_color};
+    background-color: ${() => useThemeColors().br_color};
     display: flex;
     height: 10%;
     justify-content: center; 
@@ -150,7 +156,7 @@ export const ContainerPilotName = styled.View`
 export const DetailsPilotName = styled.Text`
     font-family: 'Montserrat-ExtraBold';
     text-transform: uppercase;
-    color: ${Colors.red_color};
+    color: ${() => useThemeColors().red_color};
     font-size: 26px;
     text-align: center; 
 `;
@@ -171,19 +177,19 @@ export const DetailsContainer = styled.View`
 export const ButtonDetails1 = styled(TouchableOpacity)`
     padding: 10px 20px;
     border-radius: 0 0 0 10px;
-    background-color: ${Colors.red_color};
+    background-color: ${() => useThemeColors().red_color};
 `
 
 export const ButtonDetails2 = styled(TouchableOpacity)`
     padding: 10px 20px;
     border-radius: 0 10px 0 0;
-    background-color: ${Colors.red_color};
+    background-color: ${() => useThemeColors().red_color};
 `
 
 export const ButtonText = styled.Text`
     font-family: 'Montserrat-ExtraBold';
     text-transform: uppercase;
-    color: ${Colors.ft_color};
+    color: ${() => useThemeColors().ft_color};
     font-size: 16px;
     text-align: center; 
 `;
@@ -191,7 +197,7 @@ export const ButtonText = styled.Text`
 export const TextUpper = styled.Text`
     font-family: 'Montserrat-ExtraBold';
     text-transform: uppercase;
-    color: ${Colors.red_color};
+    color: ${() => useThemeColors().red_color};
     font-size: 40px;
     text-align: center; 
 `
@@ -200,7 +206,7 @@ export const TextInfo = styled.Text`
     width: 140px;
     font-family: 'Montserrat-ExtraBold';
     text-transform: uppercase;
-    color: ${Colors.red_color};
+    color: ${() => useThemeColors().red_color};
     font-size: 24px;
     text-align: center;
 `

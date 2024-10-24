@@ -1,20 +1,26 @@
+// Importando dependencias
 import styled from 'styled-components';
-import Colors from '../constant/Colors'
-import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native';
+// Importa o hook para acessar as cores
+import { useColors } from '../context/ColorsContext'; 
 
+// Custom hook para usar as cores no styled-components
+const useThemeColors = () => {
+  const colors = useColors();
+  return colors;
+};
 
 // Estilo para o container
 
 export const RankingContainer = styled.View`
   flex: 1;
   gap: 20px;
-  background-color: ${Colors.ft_color};
+  background-color: ${() => useThemeColors().ft_color};
 `;
 
 export const RankingSafeView = styled(SafeAreaView)`
   flex: 1;
-  background-color: ${Colors.red_color};
+  background-color: ${() => useThemeColors().red_color};
 `;
 
 
@@ -27,23 +33,18 @@ export const RankingTab = styled.TouchableOpacity`
   flex: 1;
   padding: 10px;
   align-items: center;
-  background-color: ${({ isActive }) => (isActive ? Colors.red_color : Colors.fill_color2)};
+  background-color: ${({ isActive }) => (isActive ? () => useThemeColors().red_color : () => useThemeColors().fill_color2)};
 `;
 
 export const RankingTabText = styled.Text`
-  color: ${Colors.ft_color};
+  color: ${() => useThemeColors().ft_color};
   text-transform: uppercase;
   font-family: 'Montserrat-ExtraBold';
 `;
 
 // Estilo para os cards dos ranking
 
-export const RankingGradient = styled(LinearGradient).attrs({
-  colors: [ Colors.red_color, Colors.red_color2], 
-  start: { x: 0, y: 2 },
-  end: { x: 1, y: 0 },
-  locations: [0.1, 0.7]
-})`
+export const RankingGradient = styled.View`
   justify-content: space-between;
   align-items: center ;
   flex-direction: row;
@@ -51,6 +52,7 @@ export const RankingGradient = styled(LinearGradient).attrs({
   height: 80px;
   border-radius: 10px 0 10px 0;
   padding: 10px ;
+  background-color: ${() => useThemeColors().red_color};
 `;
 
 export const RankingImage = styled.Image`
@@ -63,14 +65,14 @@ export const RankingImage = styled.Image`
 export const RankingPos = styled.Text`
   font-family: 'Montserrat-ExtraBold';
   font-size: 50px;
-  color: ${Colors.ft_color};
+  color: ${() => useThemeColors().ft_color};
 `
 
 export const RankingPoints = styled.Text`
   font-family: 'Montserrat-Regular';
   font-size: 12px;
   text-transform: uppercase;
-  color: ${Colors.ft_color};
+  color: ${() => useThemeColors().ft_color};
 `
 export const RankingPointsBold = styled.Text`
   font-family: 'Montserrat-ExtraBold';
@@ -82,7 +84,7 @@ export const RankingText = styled.Text`
   font-size: 15px;
   text-transform: capitalize;
   flex-wrap: wrap;
-  color: ${Colors.ft_color};
+  color: ${() => useThemeColors().ft_color};
 `
 
 export const RankingTextView = styled.View`

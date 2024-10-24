@@ -1,12 +1,19 @@
 // Importando dependencias
 import React, { useEffect, useRef } from 'react';
 import {  Animated, StyleSheet } from 'react-native';
-// Importando cores
-import Colors from '../constant/Colors';
+// Importa o hook para acessar as cores
+import { useColors } from '../context/ColorsContext'; 
 // Importando estilo
 import { LoadingContainer } from '../styles/LoadingStyle';
 
 const Loading = () => {
+
+    // Custom hook para usar as cores no styled-components
+    const useThemeColors = () => {
+        const colors = useColors();
+        return colors;
+    };
+
     const rotateAnim = useRef(new Animated.Value(0)).current;
 
     useEffect(() => {
@@ -29,7 +36,7 @@ const Loading = () => {
 
     return (
         <LoadingContainer>
-            <Animated.View style={[styles.loader, { transform: [{ rotate: spin }] }]}>
+            <Animated.View style={[styles.loader, { transform: [{ rotate: spin }], borderRightColor: useThemeColors().red_color }]}>
             </Animated.View>
         </LoadingContainer>
     );
@@ -41,7 +48,6 @@ const styles = StyleSheet.create({
         height: 80,
         borderRadius: 40,
         borderRightWidth: 4,
-        borderRightColor: Colors.red_color,
         position: 'relative',
     },
 });
