@@ -27,7 +27,7 @@ export const fetchFavoriteTeam = async (userId) => {
 };
 
 // Função que adiciona o time favorito do usuário ao banco de dados
-export const handleSetFavoriteTeam = async (userId, team, setFavoriteTeam, navigation) => {
+export const handleSetFavoriteTeam = async (userId, team) => {
   try {
     // Referência ao documento do usuário no Firestore
     const userDocRef = doc(db, 'users', userId);
@@ -35,10 +35,8 @@ export const handleSetFavoriteTeam = async (userId, team, setFavoriteTeam, navig
     await setDoc(userDocRef, { favoriteTeam: team.team }, { merge: true });
     
     // Atualiza o estado local com o time favorito
-    setFavoriteTeam(team.team);
+    return team.team;
     
-    // Navega de volta para a tela inicial
-    navigation.navigate('Home'); 
   } catch (error) {
     // Captura e exibe erros ao definir o time favorito
     console.error('Error setting favorite team:', error);

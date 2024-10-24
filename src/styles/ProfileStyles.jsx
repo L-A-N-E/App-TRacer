@@ -99,3 +99,54 @@ export const ProfileButtonText = styled.Text`
   color: ${() => useThemeColors().ft_color};
   letter-spacing: 10px;
 `
+
+// Estilo para mudar username
+
+export const ProfileUsernameContainer = styled.View`
+  flex: 1;
+  gap: 20px;
+  justify-content: center;
+  padding: 50px;
+  background-color: ${() => useThemeColors().red_color};
+`
+
+export const ProfileUsernameText = styled.Text`
+  color: ${() => useThemeColors().ft_color};
+  font-size: 24px;
+  font-family: 'Montserrat-Bold';
+  text-transform: uppercase;
+`
+
+export const ProfileInput = styled.TextInput`
+    border-style: solid;
+    border-bottom-color: ${() => useThemeColors().ft_color};
+    border-radius: 10px 0 0 0;
+    color: ${() => useThemeColors().ft_color};
+    border-bottom-width: 2px;
+    height: 40px;
+    padding: 12.5px;
+    background-color: ${() => useThemeColors().red_color2};
+    color: ${() => useThemeColors().ft_color};
+`
+export const ProfileContainerButton = styled.View`
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+`
+
+export const ProfileChangeButton = styled.TouchableOpacity`
+    width: 110px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 0px 10px 0px;
+    background-color: ${({input}) => input == 'save' ? useThemeColors().red_color2 : ''};
+    border: solid 2px ${() => useThemeColors().ft_color};
+`
+
+export const ProfileChangeText = styled.Text`
+    font-family: 'Montserrat-Bold';
+    text-transform: uppercase;
+    font-size: 15px;
+    color: ${() => useThemeColors().ft_color};
+`
