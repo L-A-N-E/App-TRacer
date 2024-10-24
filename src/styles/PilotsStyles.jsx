@@ -37,7 +37,7 @@ export const SelectionBold = styled.Text`
 
 // Estilos para os pilotos
 export const PilotsContainer =  styled.View`
-    background-color: ${() => useThemeColors().red_color};
+    background-color: ${({colors}) => colors ? colors : useThemeColors().red_color};
     flex-direction: row;
     height: 160px;
     padding: 0 10px;
@@ -134,7 +134,7 @@ export const Faixa = styled.View`
   top: 0;
   width: 100px; 
   height: 100%; 
-  background-color: ${() => useThemeColors().red_color}; 
+  background-color: ${({colors}) => colors ? colors : useThemeColors().red_color}; 
   z-index: 0; 
 `;
 
@@ -156,7 +156,7 @@ export const ContainerPilotName = styled.View`
 export const DetailsPilotName = styled.Text`
     font-family: 'Montserrat-ExtraBold';
     text-transform: uppercase;
-    color: ${() => useThemeColors().red_color};
+    color: ${({colors}) => colors ? colors : useThemeColors().red_color};
     font-size: 26px;
     text-align: center; 
 `;
@@ -177,13 +177,13 @@ export const DetailsContainer = styled.View`
 export const ButtonDetails1 = styled(TouchableOpacity)`
     padding: 10px 20px;
     border-radius: 0 0 0 10px;
-    background-color: ${() => useThemeColors().red_color};
+    background-color: ${({colors}) => colors ? colors : useThemeColors().red_color};
 `
 
 export const ButtonDetails2 = styled(TouchableOpacity)`
     padding: 10px 20px;
     border-radius: 0 10px 0 0;
-    background-color: ${() => useThemeColors().red_color};
+    background-color: ${({colors}) => colors ? colors : useThemeColors().red_color};
 `
 
 export const ButtonText = styled.Text`
@@ -197,7 +197,7 @@ export const ButtonText = styled.Text`
 export const TextUpper = styled.Text`
     font-family: 'Montserrat-ExtraBold';
     text-transform: uppercase;
-    color: ${() => useThemeColors().red_color};
+    color: ${({colors}) => colors ? colors : useThemeColors().red_color};
     font-size: 40px;
     text-align: center; 
 `
@@ -206,7 +206,7 @@ export const TextInfo = styled.Text`
     width: 140px;
     font-family: 'Montserrat-ExtraBold';
     text-transform: uppercase;
-    color: ${() => useThemeColors().red_color};
+    color: ${({colors}) => colors ? colors : useThemeColors().red_color};
     font-size: 24px;
     text-align: center;
 `

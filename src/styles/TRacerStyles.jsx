@@ -43,17 +43,9 @@ export const SectionTitle = styled.Text`
 `
 
 // Estilo para o piloto
-export const SectionContainer = styled.View`
-    background-color: ${() => useThemeColors().red_color};
-    flex-direction: row;
-    height: 160px;
-    padding: 0 10px;
-    border-radius: 0 10px 0 10px;
-    width: ${width - 30}px;
-`
 
 export const SectionContent = styled.View`
-    background-color: ${() => useThemeColors().red_color};
+    background-color: ${({colors}) => colors ? colors : useThemeColors().red_color};
     flex-direction: row;
     justify-content: space-around;
     height: 160px;
